@@ -78,35 +78,20 @@
 
   .nav-links a:hover { color: var(--fg); }
 
-.hero {
-  min-height: 100svh;
-  /* Ajustamos o padding inferior para 0 para o marquee encostar na borda */
-  padding: calc(var(--nav-h) + 4vh) 5vw 0; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribui o conteúdo verticalmente */
-}
+  .hero {
+    min-height: 100svh;
+    padding: var(--nav-h) 5vw 0; 
+    display: flex;
+    flex-direction: column;
+  }
 
-.hero-bottom {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-top: auto; /* IMPORTANTE: Empurra essa parte e o que estiver abaixo para o fundo */
-  margin-bottom: 4vh; /* Garante um espaçamento saudável antes do marquee */
-  flex-wrap: wrap;
-  gap: 2rem;
-  opacity: 0;
-  animation: fadeUp 0.7s 0.4s forwards;
-}
-
-.marquee-wrap {
-  overflow: hidden;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  width: 100vw; /* Força o marquee a ir de ponta a ponta na tela */
-  margin-left: -5vw; /* Compensa o padding de 5vw das laterais da hero */
-}
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
 
   .hero-label {
     font-size: 0.78rem;
@@ -128,6 +113,28 @@
     text-transform: uppercase;
     opacity: 0;
     animation: fadeUp 0.7s 0.2s forwards;
+  }
+
+  .hero-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 4rem; 
+    flex-wrap: wrap;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+
+  .marquee-wrap {
+    overflow: hidden;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    width: 100vw; 
+    margin-left: -5vw;
+    margin-top: auto;
+    margin-bottom: 0;
   }
 
   .mobile-only {
@@ -155,17 +162,6 @@
     line-height: 1.3;
     color: var(--fg2);
     margin-top: 0.6rem;
-  }
-
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-top: 4rem;
-    flex-wrap: wrap;
-    gap: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.7s 0.4s forwards;
   }
 
   .hero-bio {
@@ -478,13 +474,6 @@
     border-top: 1px solid var(--border);
   }
 
-  .marquee-wrap {
-    overflow: hidden;
-    padding: 2rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
   .marquee-track {
     display: flex;
     gap: 4rem;
@@ -523,7 +512,13 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .hamburger { display: none; background: none; border: pointer; padding: 4px; }
+  .hamburger { 
+    display: none; 
+    background: none; 
+    border: none;       
+    cursor: pointer;     
+    padding: 4px; 
+  }
 
   @media (max-width: 768px) {
     .hamburger { display: block; }
@@ -568,39 +563,39 @@
 </nav>
 
 <section class="hero">
-  <p class="hero-label">Product Designer · UX Designer</p>
-  <h1 class="hero-title">
-  GABI<br class="mobile-only">DALBÓ
-</h1>
-  <div class="hero-bottom">
-    <p class="hero-bio">
-      Olá! Sou designer de produto com foco em interfaces digitais, sistemas de design e experiências que equilibram forma e função.
-    </p>
-    <a href="#projetos" class="hero-cta">
-      Ver projetos
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 8h10M9 4l4 4-4 4"/>
-      </svg>
-    </a>
+  <div class="hero-content">
+    <p class="hero-label">Product Designer · UX Designer</p>
+    <h1 class="hero-title">
+      GABI<br class="mobile-only">DALBÓ
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-bio">
+        Olá! Sou designer de produto com foco em interfaces digitais, sistemas de design e experiências que equilibram forma e função.
+      </p>
+      <a href="#projetos" class="hero-cta">
+        Ver projetos
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
   </div>
-  <!-- MARQUEE -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item">Product Design <span>·</span></span>
-    <span class="marquee-item">UX Research <span>·</span></span>
-    <span class="marquee-item">Design Systems <span>·</span></span>
-    <span class="marquee-item">Prototyping <span>·</span></span>
-    <span class="marquee-item">Visual Design <span>·</span></span>
-    <span class="marquee-item">Product Design <span>·</span></span>
-    <span class="marquee-item">UX Research <span>·</span></span>
-    <span class="marquee-item">Design Systems <span>·</span></span>
-    <span class="marquee-item">Prototyping <span>·</span></span>
-    <span class="marquee-item">Visual Design <span>·</span></span>
+  
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Product Design <span>·</span></span>
+      <span class="marquee-item">UX Research <span>·</span></span>
+      <span class="marquee-item">Design Systems <span>·</span></span>
+      <span class="marquee-item">Prototyping <span>·</span></span>
+      <span class="marquee-item">Visual Design <span>·</span></span>
+      <span class="marquee-item">Product Design <span>·</span></span>
+      <span class="marquee-item">UX Research <span>·</span></span>
+      <span class="marquee-item">Design Systems <span>·</span></span>
+      <span class="marquee-item">Prototyping <span>·</span></span>
+      <span class="marquee-item">Visual Design <span>·</span></span>
+    </div>
   </div>
-</div>
 </section>
-
-
 
 <section id="projetos">
   <div class="section-header">
