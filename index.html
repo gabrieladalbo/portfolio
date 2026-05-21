@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GabrielaDalBó — Product Designer</title>
-<meta name="description" content="Product Designer focada em criar experiências digitais que unem beleza e funcionalidade.">
+<title>Gabriela DalBó — Product Designer Specialist</title>
+<meta name="description" content="Product Designer Specialist com mais de 10 anos de experiência, focada em Design Systems e produtos digitais complexos.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -151,25 +151,18 @@
     }
   }
 
-  .hero-title em {
-    font-style: italic;
-    font-weight: 400;
-    font-family: var(--font-body);
-    font-size: 0.55em;
-    letter-spacing: 0;
-    text-transform: none;
-    display: block;
-    line-height: 1.3;
-    color: var(--fg2);
-    margin-top: 0.6rem;
-  }
-
   .hero-bio {
-    max-width: 420px;
-    font-size: 1.1rem;
+    max-width: 500px;
+    font-size: 1.15rem;
     color: var(--fg2);
     line-height: 1.6;
     font-weight: 300;
+  }
+
+  /* Alterado negrito da bio para Medium (500) */
+  .hero-bio strong {
+    font-weight: 500;
+    color: var(--fg);
   }
 
   .hero-cta {
@@ -199,10 +192,14 @@
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 3rem;
-    border-top: 1px solid var(--border);
     padding-top: 1.5rem;
     flex-wrap: wrap;
     gap: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  #projetos .section-header {
+    border-top: none;
   }
 
   .section-title {
@@ -214,10 +211,36 @@
     color: var(--fg3);
   }
 
-  .section-count {
-    font-size: 0.78rem;
-    color: var(--fg3);
+  .filter-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--fg2);
+    cursor: pointer;
+    padding: 6px 16px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--fg);
+    color: var(--fg);
+  }
+
+  .filter-btn.active {
+    background: var(--fg);
+    border-color: var(--fg);
+    color: var(--bg);
   }
 
   .projects-grid {
@@ -228,6 +251,7 @@
 
   @media (max-width: 768px) {
     .projects-grid { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   }
 
   .project-card {
@@ -239,7 +263,7 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
   }
 
   .project-card:hover { transform: translateY(-6px); }
@@ -252,6 +276,10 @@
     .project-card.large { grid-column: span 1; }
   }
 
+  .project-card.hidden {
+    display: none;
+  }
+
   .project-img {
     width: 100%;
     aspect-ratio: 16/9;
@@ -261,13 +289,9 @@
     transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
   }
 
-  .project-card:hover .project-img {
-    transform: scale(1.03);
-  }
-
   .project-img-placeholder {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 21/9;
     background: linear-gradient(135deg, #DDD8CF 0%, #C8C3B8 100%);
     display: flex;
     align-items: center;
@@ -276,6 +300,15 @@
     font-size: 4rem;
     color: rgba(0,0,0,0.1);
     font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .project-img-placeholder { aspect-ratio: 16/9; }
+  }
+
+  .project-card:hover .project-img,
+  .project-card:hover .project-img-placeholder {
+    transform: scale(1.015);
   }
 
   .project-info {
@@ -379,6 +412,12 @@
     font-weight: 300;
     margin-bottom: 1.2rem;
     line-height: 1.7;
+  }
+
+  /* Alterado negrito do texto 'sobre mim' para Medium (500) */
+  .about-text p strong {
+    font-weight: 500;
+    color: var(--fg);
   }
 
   .skills-grid {
@@ -518,7 +557,17 @@
     border: none;       
     cursor: pointer;     
     padding: 4px; 
+    color: var(--fg);
+    z-index: 110;
   }
+
+  .hamburger svg line {
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+  nav.open #h1 { transform: translateY(5px) rotate(45deg); }
+  nav.open #h2 { opacity: 0; }
+  nav.open #h3 { transform: translateY(-5px) rotate(-45deg); }
 
   @media (max-width: 768px) {
     .hamburger { display: block; }
@@ -534,11 +583,12 @@
       display: flex;
       flex-direction: column;
       position: fixed;
-      inset: var(--nav-h) 0 0 0;
+      inset: 0;
       background: var(--bg);
       align-items: center;
       justify-content: center;
       gap: 2.5rem;
+      padding-top: var(--nav-h);
     }
     .nav-links a { font-size: 1.5rem; }
   }
@@ -564,13 +614,13 @@
 
 <section class="hero">
   <div class="hero-content">
-    <p class="hero-label">Product Designer · UX Designer</p>
+    <p class="hero-label">Product Designer Specialist · UX/UI Designer · UX Research</p>
     <h1 class="hero-title">
       GABI<br class="mobile-only">DALBÓ
     </h1>
     <div class="hero-bottom">
       <p class="hero-bio">
-        Olá! Sou designer de produto com foco em interfaces digitais, sistemas de design e experiências que equilibram forma e função.
+        Olá! Sou Product Designer Specialist com mais de 10 anos de experiência. Atualmente lidero o ecossistema de produtos digitais e a evolução do Design System na Portobello.
       </p>
       <a href="#projetos" class="hero-cta">
         Ver projetos
@@ -583,14 +633,14 @@
   
   <div class="marquee-wrap" aria-hidden="true">
     <div class="marquee-track">
-      <span class="marquee-item">Product Design <span>·</span></span>
-      <span class="marquee-item">UX Research <span>·</span></span>
       <span class="marquee-item">Design Systems <span>·</span></span>
+      <span class="marquee-item">User Research <span>·</span></span>
+      <span class="marquee-item">Interaction Design <span>·</span></span>
       <span class="marquee-item">Prototyping <span>·</span></span>
       <span class="marquee-item">Visual Design <span>·</span></span>
-      <span class="marquee-item">Product Design <span>·</span></span>
-      <span class="marquee-item">UX Research <span>·</span></span>
       <span class="marquee-item">Design Systems <span>·</span></span>
+      <span class="marquee-item">User Research <span>·</span></span>
+      <span class="marquee-item">Interaction Design <span>·</span></span>
       <span class="marquee-item">Prototyping <span>·</span></span>
       <span class="marquee-item">Visual Design <span>·</span></span>
     </div>
@@ -600,36 +650,58 @@
 <section id="projetos">
   <div class="section-header">
     <span class="section-title">Projetos</span>
+    
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="featured">Destaques</button>
+      <button class="filter-btn" data-filter="digital">Digital Design</button>
+      <button class="filter-btn" data-filter="visual">Visual Design</button>
+    </div>
   </div>
 
   <div class="projects-grid">
-    <a href="#" class="project-card">
-      <img src="img/digital.jpg" alt="Capa do projeto Digital Design" class="project-img">
+    <a href="ds-portobello.html" class="project-card large" data-category="digital" data-featured="true">
+      <img src="img/capa-ds.jpg" alt="Capa do projeto DS Site Portobello" class="project-img">
       <div class="project-info">
         <div class="project-tags">
           <span class="tag">Design System</span>
-          <span class="tag">UX Research</span>
-          <span class="tag">UI</span>
-          <span class="tag">Web</span>
+          <span class="tag">Governance</span>
+          <span class="tag">Product Design</span>
         </div>
-        <h3 class="project-name">Digital Design</h3>
-        <p class="project-desc">Soluções de interface para ecossistemas web e mobile, do desenho de Design Systems complexos a aplicativos nativos.</p>
+        <h3 class="project-name">Design System Site Portobello</h3>
+        <p class="project-desc">Desenvolvimento do primeiro Design System da Portobello, padronizando a identidade visual, componentes e estrutura do portal. A entrega envolveu a reformulação de mais de 148 páginas, substituição de 400 componentes legados por 146 reutilizáveis e uma redução de 94% no peso das bibliotecas visuais.</p>
       </div>
       <div class="project-arrow">
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
     </a>
 
-    <a href="#" class="project-card">
-      <img src="img/visual.jpg" alt="Capa do projeto Visual Design" class="project-img">
+    <a href="#" class="project-card" data-category="digital" data-featured="true">
+      <img src="img/capa-site.jpg" alt="Capa do projeto Site Portobello" class="project-img">
       <div class="project-info">
         <div class="project-tags">
-          <span class="tag">Branding</span>
-          <span class="tag">Key Visual</span>
-          <span class="tag">Logotipo</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Web</span>
         </div>
-        <h3 class="project-name">Visual Design</h3>
-        <p class="project-desc">Criação de marcas, direções criativas e soluções gráficas focadas em estética, conceito e expressão visual.</p>
+        <h3 class="project-name">Site Portobello</h3>
+        <p class="project-desc">Redesign do site da Portobello Shop, com foco em aprimorar a experiência do usuário e otimizar a estrutura de navegação e gestão de conteúdo.
+O novo modelo serviu como base para as demais unidades de negócio da Portobello.</p>
+      </div>
+      <div class="project-arrow">
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
+    </a>
+
+    <a href="#" class="project-card" data-category="visual" data-featured="true">
+      <img src="img/capa-360.jpg" alt="Capa do projeto 360" class="project-img">
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">Product Design</span>
+          <span class="tag">SaaS</span>
+          <span class="tag">B2B</span>
+        </div>
+        <h3 class="project-name">Shop 360</h3>
+        <p class="project-desc">Desenvolvimento das interfaces do Shop360, plataforma de vendas da Portobello Shop, com criação das telas do produto desde as primeiras versões e estruturação inicial do Design System.</p>
       </div>
       <div class="project-arrow">
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -646,27 +718,27 @@
     <div class="about-text">
       <h2>Oi, eu sou a Gabi.</h2>
       <p>
-        Sou formada em Design de Produto pela UDESC e atuo como Product Designer especialista na Portobello, onde sou responsável pelos produtos digitais e pela criação e evolução do primeiro Design System da empresa.
+        Sou formada em Design de Produto pela UDESC e atuo como <strong>Product Designer Specialist na Portobello</strong>, onde sou responsável pela estratégia dos produtos digitais e pela criação, governança e evolução do primeiro Design System da empresa.
       </p>
       <p>
-        Com mais de 10 anos de experiência em design, dedico minha carreira a desenvolver experiências digitais intuitivas, funcionais e visualmente equilibradas, conectando objetivos de negócio às necessidades dos usuários, colaborando com times multidisciplinares e mentorando designers em início de carreira.
+        Com <strong>mais de 10 anos de experiência</strong> em design, dedico minha carreira a desenvolver experiências digitais intuitivas, funcionais e visualmente equilibradas. Busco conectar de forma clara os objetivos de negócio às reais necessidades dos usuários, colaborando de perto com times multidisciplinares e atuando na <strong>mentoria de designers</strong> em início de carreira.
       </p>
 
       <div class="skills-grid">
         <div class="skill-item">
-          <h4 class="skill-label">Ferramentas</h4>
-          <div class="skill-list">Figma<br>Figjam<br>Framer<br>Notion</div>
+          <h4>Ferramentas</h4>
+          <div class="skill-list">Figma<br>Adobe XD<br>Photoshop<br>Clarity<br>GA4</div>
         </div>
         <div class="skill-item">
-          <h4 class="skill-label">Áreas</h4>
-          <div class="skill-list">Product Design<br>UX Research<br>Design Systems<br>Prototyping</div>
+          <h4>Áreas</h4>
+          <div class="skill-list">Product Design<br>Design Systems<br>Accessibility & Responsive Design<br>Brand & Visual Design</div>
         </div>
         <div class="skill-item">
-          <h4 class="skill-label">Métodos</h4>
-          <div class="skill-list">Entrevistas<br>Testes A/B<br>Sprints<br>Heurísticas</div>
+          <h4>Métodos</h4>
+          <div class="skill-list">Design Thinking<br>Product Discovery<br>Lean UX<br>Heurísticas de Nielsen</div>
         </div>
         <div class="skill-item">
-          <h4 class="skill-label">Idiomas</h4>
+          <h4>Idiomas</h4>
           <div class="skill-list">Português<br>Inglês</div>
         </div>
       </div>
@@ -703,27 +775,81 @@
 <script>
   const ham = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
-  ham.addEventListener('click', () => nav.classList.toggle('open'));
-
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => nav.classList.remove('open'));
+  
+  ham.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    if(nav.classList.contains('open')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   });
 
-  const cards = document.querySelectorAll('.project-card, .about-grid, .contact-inner');
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filterValue = button.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.97) translateY(10px)';
+        
+        setTimeout(() => {
+          const isFeatured = card.getAttribute('data-featured') === 'true';
+          const matchesCategory = card.getAttribute('data-category') === filterValue;
+
+          if (filterValue === 'featured' && isFeatured) {
+            card.classList.remove('hidden');
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1) translateY(0)';
+            }, 50);
+          } else if (filterValue !== 'featured' && matchesCategory) {
+            card.classList.remove('hidden');
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1) translateY(0)';
+            }, 50);
+          } else {
+            card.classList.add('hidden');
+          }
+        }, 200);
+      });
+    });
+  });
+
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
+      const isFeatured = e.target.getAttribute('data-featured') === 'true';
+      if (e.isIntersecting && isFeatured) {
         e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
+        e.target.style.transform = 'translateY(0) scale(1)';
+        obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.02 });
 
-  cards.forEach(c => {
-    c.style.opacity = '0';
-    c.style.transform = 'translateY(32px)';
-    c.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1)';
-    obs.observe(c);
+  projectCards.forEach(c => {
+    if (c.getAttribute('data-featured') === 'true') {
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(24px) scale(1)';
+      c.style.transition = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+      obs.observe(c);
+    } else {
+      c.classList.add('hidden');
+    }
   });
 </script>
 </body>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Portobello — GABIDALBÓ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F5F2ED;
+    --fg: #111;
+    --fg2: #555;
+    --fg3: #999;
+    --card-bg: #EDEAE3;
+    --border: rgba(0,0,0,0.08);
+    --nav-h: 64px;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--fg); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--fg); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.85rem; font-weight: 400; letter-spacing: 0.06em; text-decoration: none; color: var(--fg2); transition: color 0.2s; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--fg); }
+
+  .projeto-header {
+    padding: calc(var(--nav-h) + 5vh) 5vw 4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .projeto-header h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
+  }
+  .projeto-header-meta {
+    text-align: right;
+    opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
+  }
+  .projeto-header-meta p { font-size: 0.85rem; color: var(--fg3); line-height: 2; }
+  
+  /* Modificado o strong do cabeçalho para Medium */
+  .projeto-header-meta strong { color: var(--fg); font-weight: 500; }
+
+  .intro-full { padding: 4rem 5vw; }
+  .intro-full p { font-size: 1.25rem; color: var(--fg2); font-weight: 300; line-height: 1.75; max-width: 780px; }
+  
+  /* Modificado o strong do texto de introdução para Medium */
+  .intro-full strong { color: var(--fg); font-weight: 500; }
+
+  .hero-img-full { width: 100%; aspect-ratio: 16/7; background: var(--card-bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem); color: rgba(0,0,0,0.07); font-weight: 700; }
+
+  .timeline-wrap { padding: 8vh 5vw; }
+
+  .timeline { position: relative; max-width: 720px; margin: 0 auto; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 5rem; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-title { 
+    font-size: 0.72rem; 
+    letter-spacing: 0.14em; 
+    text-transform: uppercase; 
+    color: var(--fg3); 
+    margin-bottom: 5rem;
+    padding-left: 0;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 6rem 3.5rem;
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .timeline-item.in { opacity: 1; transform: none; }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: 6px;
+    top: 0.35rem;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1.5px solid var(--fg3);
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .timeline-item.in .timeline-dot { border-color: var(--fg); background: var(--fg); }
+
+  .timeline-item-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg3); margin-bottom: 0.6rem; }
+  .timeline-item h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1rem; letter-spacing: -0.01em; }
+  .timeline-item p { font-size: 1rem; color: var(--fg2); font-weight: 300; line-height: 1.75; margin-bottom: 1.5rem; }
+  
+  /* Caso utilize algum strong dentro das descrições das etapas */
+  .timeline-item p strong { font-weight: 500; color: var(--fg); }
+
+  .timeline-img { width: 100%; aspect-ratio: 16/8; border-radius: 12px; background: var(--card-bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 3rem; color: rgba(0,0,0,0.08); font-weight: 700; margin-top: 2rem; }
+
+  .metrics-section { padding: 6rem 5vw; border-top: 1px solid var(--border); }
+  
+  .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border-radius: 16px; overflow: hidden; max-width: 720px; margin: 0 auto; }
+  .metric { background: var(--bg); padding: 2.5rem; }
+  .metric-num { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; display: block; line-height: 1; margin-bottom: 0.5rem; }
+  .metric-desc { font-size: 0.85rem; color: var(--fg3); line-height: 1.4; }
+
+  .project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem 5vw;
+    border-top: 1px solid var(--border);
+  }
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--fg);
+    border-bottom: 2px solid var(--fg);
+    padding-bottom: 4px;
+    transition: gap 0.2s;
+  }
+  .nav-btn:hover { gap: 1rem; }
+  .nav-btn.prev svg { transform: rotate(180deg); }
+
+  footer { padding: 2rem 5vw; display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--fg3); flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    .projeto-header { grid-template-columns: 1fr; }
+    .projeto-header-meta { text-align: left; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .project-navigation { flex-direction: column; align-items: flex-start; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">GABIDALBÓ</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#projetos">Projetos</a></li>
+    <li><a href="../index.html#sobre">Sobre</a></li>
+    <li><a href="../index.html#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<header class="projeto-header">
+  <h1>Design<br>System<br>Portobello</h1>
+  <div class="projeto-header-meta">
+    <p><strong>Empresa</strong><br>Portobello</p>
+    <p style="margin-top: 1rem;"><strong>Ano</strong><br>2023 – 2024</p>
+    <p style="margin-top: 1rem;"><strong>Papel</strong><br>Product Designer Lead</p>
+  </div>
+</header>
+
+<div class="intro-full">
+  <p>Desenvolvimento do primeiro Design System da Portobello, padronizando identidade visual, componentes e estrutura do portal. Reformulação de mais de <strong>148 páginas</strong>, 400 componentes legados substituídos por <strong>146 reutilizáveis</strong> e redução de 94% no peso das bibliotecas.</p>
+</div>
+
+<div class="hero-img-full">Imagem principal</div>
+
+<div class="timeline-wrap">
+  <div class="timeline">
+    <p class="timeline-title">Processo</p>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-item-label">Etapa 01</p>
+      <h3>Diagnóstico e levantamento</h3>
+      <p>Mapeamento completo do portal existente: inventário de componentes, estilos duplicados, bibliotecas conflitantes e inconsistências visuais entre as diferentes unidades de negócio da Portobello.</p>
+      <div class="timeline-img">Imagem: diagnóstico</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-item-label">Etapa 02</p>
+      <h3>Definição de tokens e fundação</h3>
+      <p>Criação dos design tokens (cores, tipografia, espaçamento, sombras) que serviriam de base para todo o sistema. Estabelecimento das regras de identidade visual por unidade de negócio.</p>
+      <div class="timeline-img">Imagem: tokens</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-item-label">Etapa 03</p>
+      <h3>Construção da biblioteca de componentes</h3>
+      <p>Desenvolvimento dos 146 componentes reutilizáveis no Figma, com documentação de variantes, estados e comportamentos. Validação contínua com equipes de desenvolvimento e produto.</p>
+      <div class="timeline-img">Imagem: componentes</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-item-label">Etapa 04</p>
+      <h3>Implantação e governança</h3>
+      <p>Rollout gradual: primeiras páginas novas, depois migração do legado. Criação de guias de uso, treinamento de designers e definição de processos de governança para manter o sistema vivo e consistente.</p>
+      <div class="timeline-img">Imagem: rollout</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="metrics-section">
+  <p style="font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg3); margin-bottom: 2rem; max-width: 720px; margin-left: auto; margin-right: auto;">Resultados</p>
+  <div class="metrics-grid">
+    <div class="metric">
+      <span class="metric-num">40%</span>
+      <span class="metric-desc">Agilidade no tempo de desenvolvimento</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">94%</span>
+      <span class="metric-desc">Redução nas bibliotecas visuais do site</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">63%</span>
+      <span class="metric-desc">Otimização no número de componentes</span>
+    </div>
+    <div class="metric">
+      <span class="metric-num">37%</span>
+      <span class="metric-desc">Redução no tempo de carregamento</span>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center; font-size: 0.8rem; color: var(--fg3); padding: 4rem 5vw 2rem;">Projeto desenvolvido como UX/UI na Portobello. Todos os direitos pertencem à Portobello.</p>
+
+<div class="project-navigation">
+  <a href="projeto-anterior.html" class="nav-btn prev">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 8h10M9 4l4 4-4 4"/>
+    </svg>
+    Projeto Anterior
+  </a>
+  <a href="proximo-projeto.html" class="nav-btn next">
+    Próximo Projeto
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 8h10M9 4l4 4-4 4"/>
+    </svg>
+  </a>
+</div>
+
+<footer>
+  <span>© 2026 Gabriela DalBó</span>
+  <span>Product Designer · Brasil</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.timeline-item').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
