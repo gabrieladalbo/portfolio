@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,12 +22,14 @@
     --card-bg: #EDEAE3;
     --border: rgba(0,0,0,0.08);
     --nav-h: 64px;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Source Sans 3', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     background: var(--bg);
     color: var(--fg);
     font-size: 16px;
@@ -35,7 +37,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -51,13 +52,12 @@
   }
 
   .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
     text-decoration: none;
     color: var(--fg);
-    text-transform: uppercase;
   }
 
   .nav-links {
@@ -69,7 +69,7 @@
   .nav-links a {
     font-size: 0.85rem;
     font-weight: 400;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-decoration: none;
     color: var(--fg2);
     transition: color 0.2s;
@@ -78,13 +78,12 @@
 
   .nav-links a:hover { color: var(--fg); }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100svh;
     padding: calc(var(--nav-h) + 8vh) 5vw 8vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .hero-label {
@@ -98,20 +97,35 @@
   }
 
   .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(3.5rem, 10vw, 9rem);
-    line-height: 0.92;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(4rem, 14vw, 16rem); 
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    width: 100%;
     text-transform: uppercase;
     opacity: 0;
     animation: fadeUp 0.7s 0.2s forwards;
   }
 
+  .mobile-only {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: clamp(3.5rem, 18vw, 6rem); 
+      line-height: 0.9;
+    }
+    .mobile-only {
+      display: block;
+    }
+  }
+
   .hero-title em {
     font-style: italic;
     font-weight: 400;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.55em;
     letter-spacing: 0;
     text-transform: none;
@@ -134,9 +148,9 @@
 
   .hero-bio {
     max-width: 420px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--fg2);
-    line-height: 1.7;
+    line-height: 1.6;
     font-weight: 300;
   }
 
@@ -144,7 +158,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
@@ -158,7 +172,6 @@
 
   .hero-cta:hover { gap: 1rem; }
 
-  /* ── SECTION ── */
   section {
     padding: 8vh 5vw;
   }
@@ -175,8 +188,8 @@
   }
 
   .section-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
+    font-family: var(--font-body);
+    font-weight: 700;
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -189,7 +202,6 @@
     letter-spacing: 0.04em;
   }
 
-  /* ── PROJECTS GRID ── */
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -235,7 +247,6 @@
     transform: scale(1.03);
   }
 
-  /* placeholder when no image */
   .project-img-placeholder {
     width: 100%;
     aspect-ratio: 16/9;
@@ -243,10 +254,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-display);
     font-size: 4rem;
     color: rgba(0,0,0,0.1);
-    font-weight: 800;
+    font-weight: 700;
   }
 
   .project-info {
@@ -271,15 +282,15 @@
   }
 
   .project-name {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-body);
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 0.4rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
   }
 
   .project-desc {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--fg2);
     font-weight: 300;
   }
@@ -313,7 +324,6 @@
     stroke-width: 2;
   }
 
-  /* ── ABOUT ── */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -321,55 +331,70 @@
     align-items: start;
   }
 
-  @media (max-width: 768px) {
-    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-image {
+    position: sticky;
+    top: calc(var(--nav-h) + 2rem);
+    width: 100%;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - var(--nav-h) - 4rem);
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
   }
 
   .about-text h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    line-height: 1.05;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   .about-text p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--fg2);
     font-weight: 300;
-    margin-bottom: 1rem;
-    line-height: 1.75;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
   }
 
   .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 2rem 3rem;
+    margin-top: 3.5rem;
+    width: 100%;
   }
 
   .skill-item {
     border-top: 1px solid var(--border);
-    padding-top: 0.75rem;
+    padding-top: 1rem;
+    display: block;
   }
 
-  .skill-label {
+  .skill-item h4 {
+    font-family: var(--font-body);
     font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--fg3);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .skill-list {
-    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
     color: var(--fg);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
-  /* ── CONTACT ── */
   .contact-inner {
     background: var(--fg);
     color: var(--bg);
@@ -383,11 +408,11 @@
   }
 
   .contact-inner h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 5vw, 4rem);
-    line-height: 1;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
     max-width: 480px;
   }
 
@@ -401,7 +426,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
@@ -419,7 +444,6 @@
     gap: 1rem;
   }
 
-  /* ── FOOTER ── */
   footer {
     padding: 2rem 5vw;
     display: flex;
@@ -432,7 +456,6 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ── MARQUEE ── */
   .marquee-wrap {
     overflow: hidden;
     padding: 2rem 0;
@@ -448,12 +471,11 @@
   }
 
   .marquee-item {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
+    font-family: var(--font-display);
+    font-weight: 700;
     font-size: clamp(2rem, 4vw, 3.5rem);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
     white-space: nowrap;
-    text-transform: uppercase;
     color: var(--fg);
   }
 
@@ -462,7 +484,7 @@
     margin-right: 4rem;
     font-weight: 400;
     font-style: italic;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.5em;
     letter-spacing: 0;
     text-transform: none;
@@ -479,12 +501,18 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── MOBILE NAV ── */
-  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger { display: none; background: none; border: pointer; padding: 4px; }
+
+  @media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image { position: static; }
+    .about-image img { max-height: 60vh; }
+    .skills-grid { gap: 2rem 1.5rem; }
+  }
 
   @media (max-width: 640px) {
-    .nav-links { display: none; }
-    .hamburger { display: block; }
     nav.open .nav-links {
       display: flex;
       flex-direction: column;
@@ -501,9 +529,8 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">GabrielaDalBó</a>
+  <a href="#" class="nav-logo">GABIDALBÓ</a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#projetos">Projetos</a></li>
     <li><a href="#sobre">Sobre</a></li>
@@ -518,12 +545,11 @@
   </button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <p class="hero-label">Product Designer · UX Designer</p>
   <h1 class="hero-title">
-    Gabriela<br>DalBó
-  </h1>
+  GABI<br class="mobile-only">DALBÓ
+</h1>
   <div class="hero-bottom">
     <p class="hero-bio">
       Olá! Sou designer de produto com foco em interfaces digitais, sistemas de design e experiências que equilibram forma e função.
@@ -537,143 +563,106 @@
   </div>
 </section>
 
-
-<!-- PROJETOS -->
 <section id="projetos">
   <div class="section-header">
-    <span class="section-title">Projetos selecionados</span>
-    <span class="section-count">(04)</span>
+    <span class="section-title">Projetos</span>
   </div>
 
   <div class="projects-grid">
-
-    <!-- Projeto 1 — GRANDE -->
-    <a href="#" class="project-card large">
-      <!-- Substitua a div abaixo por: <img src="imagem-projeto.jpg" alt="..." class="project-img"> -->
-      <div class="project-img-placeholder">01</div>
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag">Product Design</span>
-          <span class="tag">Mobile</span>
-        </div>
-        <h3 class="project-name">Nome do Projeto Principal</h3>
-        <p class="project-desc">Breve descrição do desafio e da solução de design. O que o usuário precisava, o que você resolveu.</p>
-      </div>
-      <div class="project-arrow">
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </div>
-    </a>
-
-    <!-- Projeto 2 -->
     <a href="#" class="project-card">
-      <div class="project-img-placeholder">02</div>
+      <img src="img/digital.jpg" alt="Capa do projeto Digital Design" class="project-img">
       <div class="project-info">
         <div class="project-tags">
           <span class="tag">Design System</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">UI</span>
           <span class="tag">Web</span>
         </div>
-        <h3 class="project-name">Sistema de Design</h3>
-        <p class="project-desc">Construção de um design system escalável do zero até componentes em produção.</p>
+        <h3 class="project-name">Digital Design</h3>
+        <p class="project-desc">eu sou um texto sobre </p>
       </div>
       <div class="project-arrow">
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
     </a>
 
-    <!-- Projeto 3 -->
     <a href="#" class="project-card">
-      <div class="project-img-placeholder">03</div>
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag">UX Research</span>
-          <span class="tag">Dashboard</span>
-        </div>
-        <h3 class="project-name">Redesign de Dashboard</h3>
-        <p class="project-desc">Redesign baseado em pesquisa com usuários que aumentou retenção em 40%.</p>
-      </div>
-      <div class="project-arrow">
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </div>
-    </a>
-
-    <!-- Projeto 4 -->
-    <a href="#" class="project-card">
-      <div class="project-img-placeholder">04</div>
+      <img src="img/visual.jpg" alt="Capa do projeto Visual Design" class="project-img">
       <div class="project-info">
         <div class="project-tags">
           <span class="tag">Branding</span>
-          <span class="tag">UI</span>
+          <span class="tag">Key Visual</span>
+          <span class="tag">Logotipo</span>
         </div>
-        <h3 class="project-name">Identidade & Interface</h3>
-        <p class="project-desc">Projeto completo de identidade visual e interface para startup de fintech.</p>
+        <h3 class="project-name">Visual Design</h3>
+        <p class="project-desc">Reu sou um texto sobre </p>
       </div>
       <div class="project-arrow">
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
     </a>
-
   </div>
 </section>
 
-<!-- SOBRE -->
 <section id="sobre">
   <div class="section-header">
     <span class="section-title">Sobre mim</span>
   </div>
   <div class="about-grid">
     <div class="about-text">
-      <h2>Design com propósito e personalidade.</h2>
+      <h2>Oi, eu sou a Gabi.</h2>
       <p>
-        Sou designer de produto com X anos de experiência criando interfaces digitais para startups e empresas de tecnologia. Acredito que o bom design é aquele que as pessoas nem percebem — porque simplesmente funciona.
+        Sou formada em Design de Produto pela UDESC e atuo como Product Designer especialista na Portobello, onde sou responsável pelos produtos digitais e pela criação e evolução do primeiro Design System da empresa.
       </p>
       <p>
-        Trabalho desde a pesquisa com usuários até entrega em produção, colaborando próximo a times de produto, engenharia e negócio.
+        Com mais de 10 anos de experiência em design, dedico minha carreira a desenvolver experiências digitais intuitivas, funcionais e visualmente equilibradas, conectando objetivos de negócio às necessidades dos usuários, colaborando com times multidisciplinares e mentorando designers em início de carreira.
       </p>
-    </div>
-    <div>
+
       <div class="skills-grid">
         <div class="skill-item">
-          <p class="skill-label">Ferramentas</p>
-          <p class="skill-list">Figma<br>Figjam<br>Framer<br>Notion</p>
+          <h4 class="skill-label">Ferramentas</h4>
+          <div class="skill-list">Figma<br>Figjam<br>Framer<br>Notion</div>
         </div>
         <div class="skill-item">
-          <p class="skill-label">Áreas</p>
-          <p class="skill-list">Product Design<br>UX Research<br>Design Systems<br>Prototyping</p>
+          <h4 class="skill-label">Áreas</h4>
+          <div class="skill-list">Product Design<br>UX Research<br>Design Systems<br>Prototyping</div>
         </div>
         <div class="skill-item">
-          <p class="skill-label">Métodos</p>
-          <p class="skill-list">Entrevistas<br>Testes A/B<br>Sprints<br>Heurísticas</p>
+          <h4 class="skill-label">Métodos</h4>
+          <div class="skill-list">Entrevistas<br>Testes A/B<br>Sprints<br>Heurísticas</div>
         </div>
         <div class="skill-item">
-          <p class="skill-label">Idiomas</p>
-          <p class="skill-list">Português<br>Inglês</p>
+          <h4 class="skill-label">Idiomas</h4>
+          <div class="skill-list">Português<br>Inglês</div>
         </div>
       </div>
+    </div>
+
+    <div class="about-image">
+      <img src="img/gabidalbo.webp" alt="Foto de Gabriela DalBó">
     </div>
   </div>
 </section>
 
-<!-- CONTATO -->
 <section id="contato">
   <div class="contact-inner">
-    <h2>Vamos criar algo incrível juntos?</h2>
+    <h2>Vamos conversar?</h2>
     <div class="contact-links">
-      <a href="mailto:seuemail@email.com" class="contact-link">
-        seuemail@email.com →
+      <a href="mailto:dalbo.gabriela@gmail.com" class="contact-link">
+        dalbo.gabriela@gmail.com →
       </a>
-      <a href="https://linkedin.com/in/seuperfil" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://linkedin.com/in/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">
         LinkedIn →
       </a>
-      <a href="https://behance.net/seuperfil" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://www.behance.net/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">
         Behance →
       </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <span>© 2025 Seu Nome</span>
+  <span>© 2026 Gabriela DalBó</span>
   <span>Product Designer · Brasil</span>
 </footer>
 
@@ -686,7 +675,6 @@
     a.addEventListener('click', () => nav.classList.remove('open'));
   });
 
-  // Scroll reveal
   const cards = document.querySelectorAll('.project-card, .about-grid, .contact-inner');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
