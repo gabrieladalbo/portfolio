@@ -78,13 +78,35 @@
 
   .nav-links a:hover { color: var(--fg); }
 
-  .hero {
-    min-height: 100svh;
-    padding: calc(var(--nav-h) + 8vh) 5vw 8vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.hero {
+  min-height: 100svh;
+  /* Ajustamos o padding inferior para 0 para o marquee encostar na borda */
+  padding: calc(var(--nav-h) + 4vh) 5vw 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribui o conteúdo verticalmente */
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto; /* IMPORTANTE: Empurra essa parte e o que estiver abaixo para o fundo */
+  margin-bottom: 4vh; /* Garante um espaçamento saudável antes do marquee */
+  flex-wrap: wrap;
+  gap: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.4s forwards;
+}
+
+.marquee-wrap {
+  overflow: hidden;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  width: 100vw; /* Força o marquee a ir de ponta a ponta na tela */
+  margin-left: -5vw; /* Compensa o padding de 5vw das laterais da hero */
+}
 
   .hero-label {
     font-size: 0.78rem;
@@ -561,7 +583,24 @@
       </svg>
     </a>
   </div>
+  <!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Product Design <span>·</span></span>
+    <span class="marquee-item">UX Research <span>·</span></span>
+    <span class="marquee-item">Design Systems <span>·</span></span>
+    <span class="marquee-item">Prototyping <span>·</span></span>
+    <span class="marquee-item">Visual Design <span>·</span></span>
+    <span class="marquee-item">Product Design <span>·</span></span>
+    <span class="marquee-item">UX Research <span>·</span></span>
+    <span class="marquee-item">Design Systems <span>·</span></span>
+    <span class="marquee-item">Prototyping <span>·</span></span>
+    <span class="marquee-item">Visual Design <span>·</span></span>
+  </div>
+</div>
 </section>
+
+
 
 <section id="projetos">
   <div class="section-header">
@@ -579,7 +618,7 @@
           <span class="tag">Web</span>
         </div>
         <h3 class="project-name">Digital Design</h3>
-        <p class="project-desc">eu sou um texto sobre </p>
+        <p class="project-desc">Soluções de interface para ecossistemas web e mobile, do desenho de Design Systems complexos a aplicativos nativos.</p>
       </div>
       <div class="project-arrow">
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
@@ -595,7 +634,7 @@
           <span class="tag">Logotipo</span>
         </div>
         <h3 class="project-name">Visual Design</h3>
-        <p class="project-desc">Reu sou um texto sobre </p>
+        <p class="project-desc">Criação de marcas, direções criativas e soluções gráficas focadas em estética, conceito e expressão visual.</p>
       </div>
       <div class="project-arrow">
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
