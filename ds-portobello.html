@@ -1,235 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design System Portobello — GABIDALBÓ</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #F5F2ED;
-    --fg: #111;
-    --fg2: #555;
-    --fg3: #999;
-    --card-bg: #EDEAE3;
-    --border: rgba(0,0,0,0.08);
-    --nav-h: 64px;
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Source Sans 3', sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--bg); color: var(--fg); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-
-  nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
-  .nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--fg); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: 0.85rem; font-weight: 400; letter-spacing: 0.06em; text-decoration: none; color: var(--fg2); transition: color 0.2s; text-transform: uppercase; }
-  .nav-links a:hover { color: var(--fg); }
-
-  .projeto-header {
-    padding: calc(var(--nav-h) + 5vh) 5vw 4rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 2rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .projeto-header h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(3rem, 8vw, 7rem);
-    line-height: 0.9;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
-  }
-  .projeto-header-meta {
-    text-align: right;
-    opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
-  }
-  .projeto-header-meta p { font-size: 0.85rem; color: var(--fg3); line-height: 2; }
-  .projeto-header-meta strong { color: var(--fg); font-weight: 500; }
-
-  .intro-full { padding: 4rem 5vw; }
-  .intro-full p { font-size: 1.25rem; color: var(--fg2); font-weight: 300; line-height: 1.75; max-width: 780px; }
-  .intro-full strong { color: var(--fg); font-weight: 500; }
-
-  .hero-img-full { display: block; width: 100%; aspect-ratio: 16/9; background: var(--card-bg); overflow: hidden; }
-
-  .timeline-wrap { padding: 8vh 5vw; }
-
-  .timeline { position: relative; max-width: 720px; margin: 0 auto; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 6px; top: 5rem; bottom: 0;
-    width: 1px;
-    background: var(--border);
-  }
-
-  .timeline-title { 
-    font-size: 0.72rem; 
-    letter-spacing: 0.14em; 
-    text-transform: uppercase; 
-    color: var(--fg3); 
-    margin-bottom: 5rem;
-    padding-left: 0;
-  }
-
-  .timeline-item {
-    position: relative;
-    padding: 0 0 6rem 3.5rem;
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1);
-  }
-  .timeline-item.in { opacity: 1; transform: none; }
-  .timeline-item:last-child { padding-bottom: 0; }
-
-  .timeline-dot {
-    position: absolute;
-    left: 6px;
-    top: 0.35rem;
-    width: 13px; height: 13px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1.5px solid var(--fg3);
-    transform: translateX(-50%);
-    z-index: 2;
-    transition: border-color 0.3s, background 0.3s;
-  }
-  .timeline-item.in .timeline-dot { border-color: var(--fg); background: var(--fg); }
-
-  .timeline-item-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg3); margin-bottom: 0.6rem; }
-  .timeline-item h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1rem; letter-spacing: -0.01em; }
-  .timeline-item p { font-size: 1rem; color: var(--fg2); font-weight: 300; line-height: 1.75; margin-bottom: 1.5rem; }
-  .timeline-item p strong { font-weight: 500; color: var(--fg); }
-
-  .timeline-img { width: 100%; aspect-ratio: 16/9; border-radius: 12px; background: var(--card-bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 3rem; color: rgba(0,0,0,0.08); font-weight: 700; margin-top: 2rem; overflow: hidden; }
-
-  /* MÉTRICAS CORRIGIDAS */
-  .metrics { 
-    margin: 3rem 0; 
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Portobello — GABIDALBÓ</title>
   
-  .metrics-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; /* Força duas colunas */
-    gap: 20px; /* Define o espaçamento exato solicitado */
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   
-  .metric { 
-    background: var(--card-bg); 
-    border-radius: 12px; 
-    padding: 2rem; 
-  }
-  
-  .metric-n { 
-    font-family: var(--font-display); 
-    font-size: clamp(2.5rem, 5vw, 4rem); 
-    font-weight: 700; 
-    display: block; 
-    line-height: 1; 
-    margin-bottom: 0.4rem; 
-  }
-  
-  .metric-d { 
-    font-size: 0.82rem; 
-    color: var(--fg3); 
-    line-height: 1.4; 
-  }
-
-  .project-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6rem 5vw;
-    border-top: 1px solid var(--border);
-  }
-  .nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--fg);
-    border-bottom: 2px solid var(--fg);
-    padding-bottom: 4px;
-    transition: gap 0.2s;
-    white-space: nowrap;
-  }
-  .nav-btn:hover { gap: 1rem; }
-  .nav-btn.prev svg { transform: rotate(180deg); }
-
-  footer { padding: 2rem 5vw; display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--fg3); flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 768px) {
-    .projeto-header { grid-template-columns: 1fr; }
-    .projeto-header-meta { text-align: left; }
-    .metrics-grid { grid-template-columns: 1fr; } /* Mantém a quebra para 1 coluna no celular */
-    .project-navigation { flex-direction: row; justify-content: space-between; align-items: center; gap: 1rem; }
-    .nav-btn { font-size: 0.75rem; }
-  }  
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="no-select">
 
 <nav>
-  <a href="../index.html" class="nav-logo">GABIDALBÓ</a>
+  <a href="index.html" class="nav-logo">GABIDALBÓ</a>
   <ul class="nav-links">
-    <li><a href="../index.html#projetos">Projetos</a></li>
-    <li><a href="../index.html#sobre">Sobre</a></li>
-    <li><a href="../index.html#contato">Contato</a></li>
+    <li><a href="index.html#projetos">Projetos</a></li>
+    <li><a href="index.html#sobre">Sobre</a></li>
+    <li><a href="index.html#contato">Contato</a></li>
   </ul>
 </nav>
 
 <header class="projeto-header">
   <h1>Design<br>System<br>Portobello</h1>
-  <div class="projeto-header-meta">
-    <p><strong>Empresa</strong><br>Portobello Shop</p>
-    <p style="margin-top: 1rem;"><strong>Ano</strong><br>2023 – 2024</p>
-    <p style="margin-top: 1rem;"><strong>Papel</strong><br>Product Designer</p>
-  </div>
 </header>
 
 <div class="intro-full">
-  <p>Desenvolvimento do primeiro Design System da Portobello, padronizando a identidade visual, componentes e estrutura do portal. A entrega envolveu a reformulação de mais de 148 páginas, substituição de <strong>400 componentes legados</strong> por <strong>146 reutilizáveis</strong> e uma <strong>redução de 94%</strong> no peso das bibliotecas visuais.</p>
+  <div class="intro-textos">
+    <p class="resumo">Desenvolvimento do primeiro Design System da Portobello para padronizar a identidade visual, estruturar componentes reutilizáveis e reduzir inconsistências no portal.<br>O projeto envolveu a reformulação de mais de 148 páginas, a substituição de aproximadamente 400 componentes legados por 146 componentes reutilizáveis e uma redução de 94% no volume das bibliotecas visuais utilizadas no site.</p>
+  </div>
+
+  <div class="projeto-header-meta">
+    <div class="meta-item">
+      <strong>Empresa</strong>
+      <span>Portobello Shop</span>
+    </div>
+    <div class="meta-item">
+      <strong>Ano</strong>
+      <span>2023 – 2024</span>
+    </div>
+    <div class="meta-item">
+      <strong>Papel</strong>
+      <span>Product Designer</span>
+    </div>
+    <div class="meta-item">
+      <strong>Time</strong>
+      <span>Product Owner<br>Desenvolvedores</span>
+    </div>
+  </div>
 </div>
 
-<a href="ds-portobello.html" class="hero-img-full">
-  <img src="img/capa-ds.jpg" alt="Imagem destaque do design system" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-</a>
+<div class="hero-img-full">
+  <img src="img/capa-ds.webp" alt="Imagem destaque do design system" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+</div>
 
 <div class="timeline-wrap">
   <div class="timeline">
-    <p class="timeline-title">Processo</p>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <p class="timeline-item-label">Etapa 01</p>
       <h3>Levantamento do problema</h3>
-      <p>Ao longo dos anos, o portal da Portobello acumulou diferentes estilos visuais, componentes e estruturas técnicas, resultado de diversas updates feitas sem um sistema de design unificado.</p>
-      <p>Essa fragmentação afetava diretamente a consistência visual e o desempenho técnico do site. Elementos repetidos, sobreposição de estilos e conflitos de código tornavam a <strong>manutenção complexa</strong> e a <strong>experiência do usuário inconsistente</strong> entre páginas.</p>
-      <p>Além disso, a implementação de novas páginas frequentemente gerava conflitos devido à quantidade de bibliotecas pré-existentes, tornando o processo de <strong>desenvolvimento mais lento</strong> e suscetível a erros. Ajustes globais, como mudanças de cores, tipografia ou componentes, também exigiam retrabalho manual, <strong>aumentando o esforço técnico</strong> e reduzindo a eficiência das entregas.</p>
+      <p>Com o passar dos anos, o portal da Portobello passou a acumular diferentes padrões visuais, componentes e estruturas técnicas. As atualizações aconteciam de forma descentralizada e sem uma base unificada de design, o que gerou inconsistências tanto na interface quanto na implementação.</p>
+      <p>Essa fragmentação impactava diretamente a manutenção do portal. Componentes duplicados, estilos sobrepostos e <strong>conflitos de código</strong> tornavam o desenvolvimento mais complexo e aumentavam o risco de inconsistências entre páginas.</p>
+      <p>Além disso, a criação de novas páginas frequentemente exigia adaptações específicas para evitar conflitos com bibliotecas já existentes. Mudanças globais em tipografia, cores ou comportamentos demandavam <strong>alterações manuais</strong>, aumentando o <strong>retrabalho técnico</strong> e reduzindo a <strong>agilidade das entregas</strong>.</p>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <p class="timeline-item-label">Etapa 02</p>
       <h3>O processo</h3>
-      <p>Diante dos desafios de padronização visual e das dificuldades recurrentes na implementação de interfaces, tomei a iniciativa de desenvolver o <strong>primeiro Design System da Portobello</strong>, com o propósito de consolidar a identidade visual da marca e criar uma base sólida para o desenvolvimento futuro do portal.</p>
-      <p>Com o apoio das equipes de desenvolvimento e tecnologia, <strong>liderei todo o processo</strong>, que foi conduzido em etapas: abrindo pela aplicação nas novas páginas que estavam sendo implementadas e, posteriormente, pela adaptação das páginas legadas do site, garantindo uma transição gradual e consistente para o novo padrão visual.</p>
-      <p>O trabalho envolveu a <strong>definição de design tokens</strong>, documentação de <strong>componentes</strong> e comportamentos, além da criação de uma <strong>biblioteca visual</strong> completa e reutilizável.</p>
+      <p>Diante desse cenário, tomei a iniciativa de estruturar o <strong>primeiro Design System da Portobello</strong>, criando uma base unificada para interface e desenvolvimento do portal.</p>
+      <p>O trabalho foi conduzido em parceria com os times de desenvolvimento e tecnologia, começando pelas novas páginas em implementação e avançando gradualmente para a adaptação das páginas legadas. Essa abordagem permitiu uma <strong>transição mais controlada</strong> e reduziu impactos na operação do portal durante a evolução do sistema.</p>
+      <p>Liderei a construção da biblioteca visual, a definição de design tokens e a documentação de componentes, estados e comportamentos. O objetivo era criar uma <strong>estrutura reutilizável, escalável e mais simples de manter</strong> no dia a dia do produto.</p>
+      <p>Além da padronização visual, o projeto também teve <strong>foco em performance e redução de dependências técnicas</strong>, revisando bibliotecas antigas e <strong>eliminando redundâncias</strong> existentes na base do portal.</p>
       <div class="timeline-img">
-        <img src="img/DS Portobello/Imagem-01.jpg" alt="Capa do Design System" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="img/DS Portobello/Imagem-01.webp" alt="Capa do Design System" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
     </div>
 
@@ -237,10 +84,15 @@
       <div class="timeline-dot"></div>
       <p class="timeline-item-label">Etapa 03</p>
       <h3>O Resultado</h3>
-      <p>A implementação do novo Design System trouxe ganhos expressivos em <strong>desempenho, eficiência e manutenção</strong> do portal. As bibliotecas visuais, antes compostas por diferentes frameworks e arquivos redundantes, foram reduzidas de aproximadamente 5.780KB para <strong>apenas 350KB</strong>, resultado da <strong>eliminação do Bootstrap</strong>, da otimização do código JavaScript e da sanitização das bibliotecas utilizadas (em alguns casos, havia até três diferentes para a mesma função, como carrosséis).</p>
-      <p>Além disso, o número de componentes ativos no site, como carrosséis, grids e banners, foi reduzido de quase 400 para <strong>146 componentes</strong>, garantindo <strong>padronização, melhor desempenho e maior agilidade</strong> nas manutenções futuras.</p>
-      <p>Essas melhorias resultaram em um <strong>carregamento significativamente mais rápido</strong> das páginas e na redução da dependência de bibliotecas externas, minimizando vulnerabilidades e conflitos de compatibilidade.</p>
-      <p>O novo Design System também proporcionou <strong>mais agilidade para ajustes globais</strong> de estilo e uma base <strong>flexível e escalável</strong> para a evolução contínua do portal.</p>
+      <p>A implementação do novo Design System trouxe ganhos diretos em manutenção, performance e consistência visual do portal.</p>
+      <p>As bibliotecas visuais, antes compostas por frameworks e arquivos redundantes, foram <strong>reduzidas de aproximadamente 5.780KB para 350KB</strong>. Esse resultado veio da remoção do Bootstrap, da otimização do JavaScript e da revisão de redundâncias, como o uso de até três bibliotecas diferentes para a mesma função (ex: carrosséis).</p>
+      <p>A estrutura de componentes também foi simplificada. O portal passou de quase 400 componentes ativos para <strong>146 componentes reutilizáveis e documentados</strong>, reduzindo inconsistências e facilitando futuras implementações e manutenções.</p>
+      <div class="timeline-img">
+        <img src="img/DS Portobello/Imagem-03.webp" alt="Capa do Design System" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <br>
+      <p>Com isso, o site ganhou mais estabilidade, <strong>carregamento mais rápido</strong> e menor dependência de bibliotecas externas, <strong>diminuindo conflitos</strong> de compatibilidade e o <strong>esforço técnico para ajustes globais</strong> de interface.</p>
+      <p>O Design System também estabeleceu uma <strong>base mais escalável para evolução contínua</strong> do portal, trazendo mais previsibilidade para o trabalho entre design e desenvolvimento.</p>
       
       <div class="metrics reveal">
         <div class="metrics-grid">
@@ -250,15 +102,15 @@
           </div>
           <div class="metric">
             <span class="metric-n">94%</span>
-            <span class="metric-d">menos bibliotecas visuais no site</span>
+            <span class="metric-d">de redução nas bibliotecas visuais</span>
           </div>
           <div class="metric">
             <span class="metric-n">63%</span>
-            <span class="metric-d">de otimização na estrutura de componentes</span>
+            <span class="metric-d">de redução na quantidade de componentes ativos</span>
           </div>
           <div class="metric">
             <span class="metric-n">37%</span>
-            <span class="metric-d">menos tempo de carregamento*</span>
+            <span class="metric-d">menos tempo de carregamento das páginas*</span>
           </div>
         </div>
       </div>
@@ -272,9 +124,9 @@
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M3 8h10M9 4l4 4-4 4"/>
     </svg>
-   Home
+    Home
   </a>
-  <a href="proximo-projeto.html" class="nav-btn next">
+  <a href="site-portobello.html" class="nav-btn next">
     Próximo Projeto
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M3 8h10M9 4l4 4-4 4"/>
@@ -288,9 +140,22 @@
 </footer>
 
 <script>
+  // Proteção de imagens e animação da linha do tempo
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
+  });
+
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    entries.forEach(e => { 
+      if (e.isIntersecting) { 
+        e.target.classList.add('in'); 
+        obs.unobserve(e.target); 
+      } 
+    });
   }, { threshold: 0.15 });
+
   document.querySelectorAll('.timeline-item').forEach(el => obs.observe(el));
 </script>
 </body>
