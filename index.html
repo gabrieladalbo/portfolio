@@ -1,596 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabriela DalBó — Product Designer Specialist</title>
-<meta name="description" content="Product Designer Specialist com mais de 10 anos de experiência, focada em Design Systems e produtos digitais complexos.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
-
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #F5F2ED;
-    --fg: #111;
-    --fg2: #555;
-    --fg3: #999;
-    --accent: #111;
-    --card-bg: #EDEAE3;
-    --border: rgba(0,0,0,0.08);
-    --nav-h: 64px;
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Source Sans 3', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--bg);
-    color: var(--fg);
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--nav-h);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5vw;
-    z-index: 100;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    transition: border-color 0.3s;
-  }
-
-  .nav-logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    color: var(--fg);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    color: var(--fg2);
-    transition: color 0.2s;
-    text-transform: uppercase;
-  }
-
-  .nav-links a:hover { color: var(--fg); }
-
-  .hero {
-    min-height: 100svh;
-    padding: var(--nav-h) 5vw 0; 
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .hero-label {
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    color: var(--fg3);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.1s forwards;
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(4rem, 14vw, 16rem); 
-    line-height: 0.85;
-    letter-spacing: -0.01em;
-    width: 100%;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 0.7s 0.2s forwards;
-  }
-
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-top: 4rem; 
-    flex-wrap: wrap;
-    gap: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.7s 0.4s forwards;
-  }
-
-  .marquee-wrap {
-    overflow: hidden;
-    padding: 2rem 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    width: 100vw; 
-    margin-left: -5vw;
-    margin-top: auto;
-    margin-bottom: 0;
-  }
-
-  .mobile-only {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: clamp(3.5rem, 18vw, 6rem); 
-      line-height: 0.9;
-    }
-    .mobile-only {
-      display: block;
-    }
-  }
-
-  .hero-bio {
-    max-width: 500px;
-    font-size: 1.15rem;
-    color: var(--fg2);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  /* Alterado negrito da bio para Medium (500) */
-  .hero-bio strong {
-    font-weight: 500;
-    color: var(--fg);
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--fg);
-    border-bottom: 2px solid var(--fg);
-    padding-bottom: 4px;
-    transition: gap 0.2s;
-  }
-
-  .hero-cta:hover { gap: 1rem; }
-
-  section {
-    padding: 8vh 5vw;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 3rem;
-    padding-top: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .section-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--fg3);
-  }
-
-  .filter-container {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .filter-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--fg2);
-    cursor: pointer;
-    padding: 6px 16px;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-  }
-
-  .filter-btn:hover {
-    border-color: var(--fg);
-    color: var(--fg);
-  }
-
-  .filter-btn.active {
-    background: var(--fg);
-    border-color: var(--fg);
-    color: var(--bg);
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .section-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  }
-
-  .project-card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    background: var(--card-bg);
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
-  }
-
-  .project-card:hover { transform: translateY(-6px); }
-
-  .project-card.large {
-    grid-column: span 2;
-  }
-
-  @media (max-width: 768px) {
-    .project-card.large { grid-column: span 1; }
-  }
-
-  .project-card.hidden {
-    display: none;
-  }
-
-  .project-img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    display: block;
-    background: var(--card-bg);
-    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-  }
-
-  .project-img-placeholder {
-    width: 100%;
-    aspect-ratio: 21/9;
-    background: linear-gradient(135deg, #DDD8CF 0%, #C8C3B8 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 4rem;
-    color: rgba(0,0,0,0.1);
-    font-weight: 700;
-  }
-
-  @media (max-width: 768px) {
-    .project-img-placeholder { aspect-ratio: 16/9; }
-  }
-
-  .project-card:hover .project-img,
-  .project-card:hover .project-img-placeholder {
-    transform: scale(1.015);
-  }
-
-  .project-info {
-    padding: 1.5rem;
-  }
-
-  .project-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.75rem;
-  }
-
-  .tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--fg3);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 3px 10px;
-  }
-
-  .project-name {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.01em;
-  }
-
-  .project-desc {
-    font-size: 0.95rem;
-    color: var(--fg2);
-    font-weight: 300;
-  }
-
-  .project-arrow {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 36px;
-    height: 36px;
-    background: var(--fg);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: scale(0.7);
-    transition: opacity 0.25s, transform 0.25s;
-  }
-
-  .project-card:hover .project-arrow {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .project-arrow svg {
-    width: 16px;
-    height: 16px;
-    stroke: #fff;
-    fill: none;
-    stroke-width: 2;
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .about-image {
-    position: sticky;
-    top: calc(var(--nav-h) + 2rem);
-    width: 100%;
-  }
-
-  .about-image img {
-    width: 100%;
-    height: auto;
-    max-height: calc(100vh - var(--nav-h) - 4rem);
-    display: block;
-    border-radius: 16px;
-    object-fit: cover;
-  }
-
-  .about-text h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .about-text p {
-    font-size: 1.05rem;
-    color: var(--fg2);
-    font-weight: 300;
-    margin-bottom: 1.2rem;
-    line-height: 1.7;
-  }
-
-  /* Alterado negrito do texto 'sobre mim' para Medium (500) */
-  .about-text p strong {
-    font-weight: 500;
-    color: var(--fg);
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 3rem;
-    margin-top: 3.5rem;
-    width: 100%;
-  }
-
-  .skill-item {
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-    display: block;
-  }
-
-  .skill-item h4 {
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--fg3);
-    margin-bottom: 0.75rem;
-  }
-
-  .skill-list {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--fg);
-    font-weight: 400;
-    line-height: 1.7;
-  }
-
-  .contact-inner {
-    background: var(--fg);
-    color: var(--bg);
-    border-radius: 24px;
-    padding: 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .contact-inner h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.01em;
-    max-width: 480px;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: rgba(255,255,255,0.6);
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    padding-bottom: 4px;
-    transition: color 0.2s, border-color 0.2s, gap 0.2s;
-  }
-
-  .contact-link:hover {
-    color: #fff;
-    border-color: rgba(255,255,255,0.6);
-    gap: 1rem;
-  }
-
-  footer {
-    padding: 2rem 5vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.78rem;
-    color: var(--fg3);
-    flex-wrap: wrap;
-    gap: 1rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .marquee-track {
-    display: flex;
-    gap: 4rem;
-    width: max-content;
-    animation: marquee 18s linear infinite;
-  }
-
-  .marquee-item {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    letter-spacing: 0.01em;
-    white-space: nowrap;
-    color: var(--fg);
-  }
-
-  .marquee-item span {
-    color: var(--fg3);
-    margin-right: 4rem;
-    font-weight: 400;
-    font-style: italic;
-    font-family: var(--font-body);
-    font-size: 0.5em;
-    letter-spacing: 0;
-    text-transform: none;
-    vertical-align: middle;
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hamburger { 
-    display: none; 
-    background: none; 
-    border: none;       
-    cursor: pointer;     
-    padding: 4px; 
-    color: var(--fg);
-    z-index: 110;
-  }
-
-  .hamburger svg line {
-    transition: transform 0.3s ease, opacity 0.2s ease;
-    transform-origin: center;
-  }
-  nav.open #h1 { transform: translateY(5px) rotate(45deg); }
-  nav.open #h2 { opacity: 0; }
-  nav.open #h3 { transform: translateY(-5px) rotate(-45deg); }
-
-  @media (max-width: 768px) {
-    .hamburger { display: block; }
-    .nav-links { display: none; }
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .about-image { position: static; }
-    .about-image img { max-height: 60vh; }
-    .skills-grid { gap: 2rem 1.5rem; }
-  }
-
-  @media (max-width: 640px) {
-    nav.open .nav-links {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      padding-top: var(--nav-h);
-    }
-    .nav-links a { font-size: 1.5rem; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriela DalBó — Product Designer Specialist</title>
+  <meta name="description" content="Product Designer Specialist com mais de 10 anos de experiência, focada em Design Systems e produtos digitais complexos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="no-select">
 
 <nav id="nav">
   <a href="#" class="nav-logo">GABIDALBÓ</a>
@@ -616,7 +38,7 @@
     </h1>
     <div class="hero-bottom">
       <p class="hero-bio">
-        Olá! Sou Product Designer Specialist com mais de 10 anos de experiência. Atualmente lidero o ecossistema de produtos digitais e a evolução do Design System na Portobello.
+        Product Designer Specialist com mais de 10 anos de experiência em produtos digitais. Atualmente, atuo na evolução do ecossistema digital da Portobello, com foco em experiência do usuário, evolução de produto e desenvolvimento do Design System da empresa.
       </p>
       <a href="#projetos" class="hero-cta">
         Ver projetos
@@ -626,13 +48,11 @@
       </a>
     </div>
   </div>
-
 </section>
 
 <section id="projetos">
   <div class="section-header">
     <span class="section-title">Projetos</span>
-    
     <div class="filter-container">
       <button class="filter-btn active" data-filter="featured">Destaques</button>
       <button class="filter-btn" data-filter="digital">Digital</button>
@@ -642,7 +62,7 @@
 
   <div class="projects-grid">
     <a href="ds-portobello.html" class="project-card large" data-category="digital" data-featured="true">
-      <img src="img/capa-ds.jpg" alt="Capa do projeto DS Site Portobello" class="project-img">
+      <img src="img/capa-ds.webp" alt="Capa do projeto DS Site Portobello" class="project-img">
       <div class="project-info">
         <div class="project-tags">
           <span class="tag">Design System</span>
@@ -657,25 +77,24 @@
       </div>
     </a>
 
-    <a href="#" class="project-card" data-category="digital" data-featured="true">
-      <img src="img/capa-site.jpg" alt="Capa do projeto Site Portobello" class="project-img">
+    <a href="site-portobello.html" class="project-card" data-category="digital" data-featured="true">
+      <img src="img/capa-site.webp" alt="Capa do projeto Site Portobello" class="project-img">
       <div class="project-info">
         <div class="project-tags">
           <span class="tag">UX Research</span>
           <span class="tag">UI Design</span>
           <span class="tag">Web</span>
         </div>
-        <h3 class="project-name">Site Portobello</h3>
-        <p class="project-desc">Redesign do site da Portobello Shop, com foco em aprimorar a experiência do usuário e otimizar a estrutura de navegação e gestão de conteúdo.
-O novo modelo serviu como base para as demais unidades de negócio da Portobello.</p>
+        <h3 class="project-name">Site Portobello Shop</h3>
+        <p class="project-desc">Reformulação do site da Portobello Shop com foco na reorganização da navegação, melhoria da experiência do usuário e evolução da gestão de conteúdo entre as diferentes unidades de negócio da marca.</p>
       </div>
       <div class="project-arrow">
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </div>
     </a>
 
-    <a href="#" class="project-card" data-category="visual" data-featured="true">
-      <img src="img/capa-360.jpg" alt="Capa do projeto 360" class="project-img">
+    <a href="shop-360.html" class="project-card" data-category="digital" data-featured="true">
+      <img src="img/capa-360.webp" alt="Capa do projeto 360" class="project-img">
       <div class="project-info">
         <div class="project-tags">
           <span class="tag">Product Design</span>
@@ -700,23 +119,26 @@ O novo modelo serviu como base para as demais unidades de negócio da Portobello
     <div class="about-text">
       <h2>Oi, eu sou a Gabi.</h2>
       <p>
-        Sou formada em Design de Produto pela UDESC e atuo como <strong>Product Designer Specialist na Portobello</strong>, onde sou responsável pela estratégia dos produtos digitais e pela criação, governança e evolução do primeiro Design System da empresa.
+      Sou formada em <strong>Design de Produto pela UDESC</strong> e atuo como <strong>Product Designer Specialist na Portobello</strong>, trabalhando na evolução dos produtos digitais da empresa e na criação, governança e evolução do primeiro <strong>Design System</strong> da marca.
       </p>
       <p>
-        Com <strong>mais de 10 anos de experiência</strong> em design, dedico minha carreira a desenvolver experiências digitais intuitivas, funcionais e visualmente equilibradas. Busco conectar de forma clara os objetivos de negócio às reais necessidades dos usuários, colaborando de perto com times multidisciplinares e atuando na <strong>mentoria de designers</strong> em início de carreira.
+      Com <strong>mais de 10 anos de experiência</strong> em design, tenho experiência na <strong>estruturação de fluxos</strong>, evolução de <strong>produtos digitais</strong> e construção de <strong>Design Systems escaláveis</strong>, sempre alinhando <strong>experiência do usuário</strong>, <strong>viabilidade técnica</strong> e <strong>objetivos de negócio</strong>.
       </p>
+       <p>
+       Atuo de forma próxima a <strong>times multidisciplinares</strong>, participando de discussões de produto, definição de melhorias, homologação e evolução contínua das interfaces. Também apoio <strong>designers em início de carreira</strong>, compartilhando processos, boas práticas e direcionamentos no dia a dia dos projetos.
+       </p>
 
       <div class="skills-grid">
         <div class="skill-item">
           <h4>Ferramentas</h4>
-          <div class="skill-list">Figma<br>Adobe XD<br>Photoshop<br>Clarity<br>GA4</div>
+          <div class="skill-list">Figma<br>Adobe XD<br>Photoshop<br>Microsoft Clarity<br>Google Analytics 4 (GA4)</div>
         </div>
         <div class="skill-item">
-          <h4>Áreas</h4>
+          <h4>Áreas de atuação</h4>
           <div class="skill-list">Product Design<br>Design Systems<br>Accessibility & Responsive Design<br>Brand & Visual Design</div>
         </div>
         <div class="skill-item">
-          <h4>Métodos</h4>
+          <h4>Métodos & práticas</h4>
           <div class="skill-list">Design Thinking<br>Product Discovery<br>Lean UX<br>Heurísticas de Nielsen</div>
         </div>
         <div class="skill-item">
@@ -736,15 +158,9 @@ O novo modelo serviu como base para as demais unidades de negócio da Portobello
   <div class="contact-inner">
     <h2>Vamos conversar?</h2>
     <div class="contact-links">
-      <a href="mailto:dalbo.gabriela@gmail.com" class="contact-link">
-        dalbo.gabriela@gmail.com →
-      </a>
-      <a href="https://linkedin.com/in/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">
-        LinkedIn →
-      </a>
-      <a href="https://www.behance.net/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">
-        Behance →
-      </a>
+      <a href="mailto:dalbo.gabriela@gmail.com" class="contact-link">dalbo.gabriela@gmail.com →</a>
+      <a href="https://linkedin.com/in/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">LinkedIn →</a>
+      <a href="https://www.behance.net/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">Behance →</a>
     </div>
   </div>
 </section>
@@ -755,16 +171,19 @@ O novo modelo serviu como base para as demais unidades de negócio da Portobello
 </footer>
 
 <script>
+  // Script de proteção de imagem e menu mobile
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
+  });
+
   const ham = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
   
   ham.addEventListener('click', () => {
     nav.classList.toggle('open');
-    if(nav.classList.contains('open')) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
   });
 
   document.querySelectorAll('.nav-links a').forEach(a => {
@@ -792,13 +211,7 @@ O novo modelo serviu como base para as demais unidades de negócio da Portobello
           const isFeatured = card.getAttribute('data-featured') === 'true';
           const matchesCategory = card.getAttribute('data-category') === filterValue;
 
-          if (filterValue === 'featured' && isFeatured) {
-            card.classList.remove('hidden');
-            setTimeout(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'scale(1) translateY(0)';
-            }, 50);
-          } else if (filterValue !== 'featured' && matchesCategory) {
+          if ((filterValue === 'featured' && isFeatured) || (filterValue !== 'featured' && matchesCategory)) {
             card.classList.remove('hidden');
             setTimeout(() => {
               card.style.opacity = '1';
