@@ -493,7 +493,7 @@ footer {
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  margin-top: 2rem; 
+  margin: 5vw 0 0;
   overflow: hidden; 
 }
 
@@ -504,7 +504,7 @@ footer {
 .metric-n { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; display: block; line-height: 1; margin-bottom: 0.4rem; }
 .metric-d { font-size: 0.82rem; color: var(--fg3); line-height: 1.4; }
 
-.project-navigation { display: flex; justify-content: space-between; align-items: center; padding: 6rem 5vw; border-top: 1px solid var(--border); }
+.project-navigation { display: flex; justify-content: space-between; align-items: center; padding: 4rem 5vw; border-top: 1px solid var(--border); }
 
 
 /* ==========================================================================
@@ -557,7 +557,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin: 4rem 0;
+  margin: 5vw 0;
 }
 
 @media (max-width: 768px) {
@@ -594,15 +594,37 @@ footer {
   .about-image img { max-height: 60vh; }
   .skills-grid { gap: 2rem 1.5rem; }
   
-  /* Interna */
-  .projeto-header { grid-template-columns: 1fr; }
-  .projeto-header-meta { text-align: left; }
-  .metrics-grid { grid-template-columns: 1fr; }
-  .project-navigation { flex-direction: row; justify-content: space-between; align-items: center; gap: 1rem; }
-  .nav-btn { font-size: 0.75rem; }
-}
+  /* --- CORREÇÃO DO INTRO-FULL E ESPAÇAMENTOS MOBILE --- */
+  .intro-full {
+    grid-template-columns: 1fr;   
+    gap: 2.5rem;                  
+    padding: 0 5vw 3.5rem 5vw;     
+  }
 
-@media (max-width: 640px) {
+  .intro-textos .resumo {
+    font-size: 1.15rem;           
+    margin-bottom: 1rem;          
+  }
+
+  .projeto-header-meta {
+    text-align: left;            
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem 1rem;           
+  }
+
+  /* --- REMOVE O STICKY DO CONTENT-LABEL NO MOBILE --- */
+  .content-label {
+    position: static;   /* Remove o comportamento de fixar ao scrollar */
+    padding-top: 0;     /* Remove o ajuste de espaçamento que era usado no desktop */
+    margin-bottom: 0.5rem; /* Adiciona um pequeno respiro entre o número/etapa e o título abaixo */
+  }
+  
+  .content-cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;        /* Ajusta o espaçamento geral do bloco para não ficar muito distante */
+  }
+
   nav.open .nav-links {
     display: flex;
     flex-direction: column;
@@ -615,4 +637,12 @@ footer {
     padding-top: var(--nav-h);
   }
   .nav-links a { font-size: 1.5rem; }
+
+  /* ----------------------------------------------------- */
+  
+  /* Interna */
+  .projeto-header { grid-template-columns: 1fr; }
+  .metrics-grid { grid-template-columns: 1fr; }
+  .project-navigation { flex-direction: row; justify-content: space-between; align-items: center; gap: 1rem; }
+  .nav-btn { font-size: 0.75rem; }
 }
