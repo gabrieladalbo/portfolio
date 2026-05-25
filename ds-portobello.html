@@ -28,7 +28,7 @@
 
 <div class="intro-full">
   <div class="intro-textos">
-    <p class="resumo">Desenvolvimento do primeiro Design System da Portobello para padronizar a identidade visual, estruturar componentes reutilizáveis e reduzir inconsistências no portal.<br>O projeto envolveu a reformulação de mais de 148 páginas, a substituição de aproximadamente 400 componentes legados por 146 componentes reutilizáveis e uma redução de 94% no volume das bibliotecas visuais utilizadas no site.</p>
+    <p class="resumo">Desenvolvimento do primeiro Design System da Portobello para padronizar a identidade visual, estruturar componentes reutilizáveis e reduzir inconsistências no portal.<br><br>O projeto envolveu a reformulação de mais de 148 páginas, a substituição de aproximadamente 400 componentes legados por 146 componentes reutilizáveis e uma redução de 94% no volume das bibliotecas visuais utilizadas no site.</p>
   </div>
 
   <div class="projeto-header-meta">
@@ -60,24 +60,53 @@
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <p class="timeline-item-label">Etapa 01</p>
-      <h3>Levantamento do problema</h3>
-      <p>Com o passar dos anos, o portal da Portobello passou a acumular diferentes padrões visuais, componentes e estruturas técnicas. As atualizações aconteciam de forma descentralizada e sem uma base unificada de design, o que gerou inconsistências tanto na interface quanto na implementação.</p>
-      <p>Essa fragmentação impactava diretamente a manutenção do portal. Componentes duplicados, estilos sobrepostos e <strong>conflitos de código</strong> tornavam o desenvolvimento mais complexo e aumentavam o risco de inconsistências entre páginas.</p>
-      <p>Além disso, a criação de novas páginas frequentemente exigia adaptações específicas para evitar conflitos com bibliotecas já existentes. Mudanças globais em tipografia, cores ou comportamentos demandavam <strong>alterações manuais</strong>, aumentando o <strong>retrabalho técnico</strong> e reduzindo a <strong>agilidade das entregas</strong>.</p>
+      <p class="timeline-item-label">O Contexto</p>
+      <h3>Sobre a empresa</h3>
+<p>A Portobello é uma das maiores empresas de revestimentos cerâmicos do Brasil, com diferentes unidades de negócio, cada uma com públicos, estratégias e portfólios específicos dentro do ecossistema da marca.
+  <br>
+  <p>O seu portal digital registrou, em 2025, quase <strong>24 milhões de visualizações</strong> e mais de <strong>2,5 milhões de usuários</strong> ativos.</p>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <p class="timeline-item-label">Etapa 02</p>
+      <p class="timeline-item-label">Etapa 01</p>
+      <h3>Identificando problema</h3>
+      <p>Por comportar diferentes unidades e times atuando em paralelo, o portal cresceu por anos <strong>sem uma base de design unificada</strong>. Cada atualização acontecia de forma descentralizada, e o acúmulo de decisões isoladas foi tornando o ambiente cada vez mais difícil de manter.</p>
+<p>Eram quase 400 componentes no ar, muitos com a mesma função mas layouts diferentes, alimentados por <strong>bibliotecas gráficas conflitantes</strong>. Havia até três bibliotecas distintas fazendo a mesma coisa: botões, carrosséis, sliders. O peso total chegava a 5.780KB.</p>
+<p>Na prática: páginas que <strong>quebravam entre QA e produção</strong>, ciclos longos de homologação, <strong>retrabalho constante no desenvolvimento</strong> e entregas simples que consumiam tempo demais. Cada nova página carregava o risco de desestabilizar algo que já estava funcionando.</p>
+    </div>
+
+        <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-item-label">Etapa 03</p>
+       <h3>Vendendo a ideia</h3>
+<p>Identificado o problema, propus a criação do Design System. Mas para convercer, precisei mostrar que a ideia funcionava.</p>
+<p>Comecei desenhando páginas novas já dentro da lógica do sistema, demonstrando na prática o quanto o <strong>processo de criação ficava mais ágil</strong> com uma base de componentes consistente. Fui <strong>construindo credibilidade</strong> entrega a entrega. Quando o contexto permitiu, apresentei a proposta formal para as áreas estratégicas, ressaltando os benefícios.</p>
+    </div>
+
+        <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-item-label">Etapa 04</p>
       <h3>O processo</h3>
-      <p>Diante desse cenário, tomei a iniciativa de estruturar o <strong>primeiro Design System da Portobello</strong>, criando uma base unificada para interface e desenvolvimento do portal.</p>
-      <p>O trabalho foi conduzido em parceria com os times de desenvolvimento e tecnologia, começando pelas novas páginas em implementação e avançando gradualmente para a adaptação das páginas legadas. Essa abordagem permitiu uma <strong>transição mais controlada</strong> e reduziu impactos na operação do portal durante a evolução do sistema.</p>
-      <p>Liderei a construção da biblioteca visual, a definição de design tokens e a documentação de componentes, estados e comportamentos. O objetivo era criar uma <strong>estrutura reutilizável, escalável e mais simples de manter</strong> no dia a dia do produto.</p>
-      <p>Além da padronização visual, o projeto também teve <strong>foco em performance e redução de dependências técnicas</strong>, revisando bibliotecas antigas e <strong>eliminando redundâncias</strong> existentes na base do portal.</p>
+      <p>O trabalho foi dividido em três frentes:</p>
+
+<p><strong>Base primeiro.</strong> Mapeei os componentes existentes, defini os tokens de cor, tipografia, grid, breakpoints e espaçamento, e documentei os componentes com estados, variações e comportamentos. Em seguida, apresentei o projeto ao time de desenvolvimento da Grupos Internet, parceiros responsáveis pelo desenvolvimento do portal.</p>
+
+<p><strong>Migração por prioridade.</strong> Mapeei as páginas mais acessadas e estratégicas do portal e priorizei a transição delas antes de qualquer outra coisa.</p>
+
+<p><strong>Refatoração do legado.</strong> Por último, fui às páginas antigas ajustar componentes, cores e tipografias para convergirem ao novo padrão, sem reconstruir do zero e sem interromper a operação.</p>
+
+<p>O projeto durou quase um ano, da concepção à refatoração das últimas páginas legadas.</p>
       <div class="timeline-img">
         <img src="img/DS Portobello/Imagem-01.webp" alt="Capa do Design System" style="width: 100%; height: 100%; object-fit: cover; display: block;">
       </div>
+    </div>
+
+ <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-item-label">Etapa 05</p>
+       <h3>O desafio</h3>
+<p>Convencer times com culturas e autonomias diferentes a <strong>respeitar um sistema compartilhado</strong> foi um processo longo. Cada unidade de negócio tinha seus hábitos, suas exceções, suas urgências. Fazer o <strong>Design System ser percebido como estrutura de apoio</strong>, e não como restrição, exigiu negociação constante, documentação cuidadosa e muita <strong>explicação sobre como o sistema funcionava</strong> e deveria ser implementado na prática.</p>
     </div>
 
     <div class="timeline-item">
