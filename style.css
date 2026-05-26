@@ -382,7 +382,7 @@ footer {
   letter-spacing: 0.1em;
 }
 
-.hero-img-full { display: block; width: 100%; aspect-ratio: 16/9; background: var(--card-bg); overflow: hidden; }
+.hero-img-full { display: block; width: 100%; aspect-ratio: 16/9; background: var(--bg); overflow: hidden; padding: 0 0 5vw 0; }
 
 /* ==========================================================================
    LINHA DO TEMPO (TIMELINE)
