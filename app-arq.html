@@ -127,13 +127,29 @@
     Shop360
   </a>
 </div>
-
 <footer>
   <span>© 2026 Gabriela DalBó</span>
   <span>Product Designer · Brasil</span>
 </footer>
 
 <script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  
+  ham.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    ham.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
   document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
   document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
   document.addEventListener('keydown', e => {

@@ -13,7 +13,6 @@
 </head>
 <body class="no-select">
 
-
 <nav id="nav">
   <a href="index.html" class="nav-logo" aria-label="GABIDALBÓ - Voltar para Home">GABIDALBÓ</a>
   <ul class="nav-links" id="nav-links">
@@ -175,29 +174,34 @@
     </svg>
   </a>
 </div>
-
 <footer>
   <span>© 2026 Gabriela DalBó</span>
   <span>Product Designer · Brasil</span>
 </footer>
 
 <script>
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  
+  ham.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    ham.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
   document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
   document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
   document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
   });
-
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { 
-      if (e.isIntersecting) { 
-        e.target.classList.add('in'); 
-        obs.unobserve(e.target); 
-      } 
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.timeline-item').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
