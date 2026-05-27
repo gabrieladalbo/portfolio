@@ -14,13 +14,13 @@
 <body class="no-select">
 
 <nav id="nav">
-  <a href="index.html" class="nav-logo">GABIDALBÓ</a>
+  <a href="index.html" class="nav-logo" aria-label="GABIDALBÓ - Voltar para Home">GABIDALBÓ</a>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html#projetos">Projetos</a></li>
     <li><a href="index.html#sobre">Sobre</a></li>
     <li><a href="index.html#contato">Contato</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Abrir Menu" aria-expanded="false" aria-controls="nav-links">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2">
       <line id="h1" x1="2" y1="6" x2="20" y2="6"/>
       <line id="h2" x1="2" y1="11" x2="20" y2="11"/>
@@ -29,180 +29,150 @@
   </button>
 </nav>
 
-<header class="projeto-header">
-  <h1>Site<br>PB Shop</h1>
-</header>
+<main>
+  <header class="projeto-header">
+    <h1>Site<br>PB Shop</h1>
+  </header>
 
-<div class="intro-full">
-  <div class="intro-textos">
-    <p class="resumo">Reformulação do site da Portobello Shop com foco na reorganização da navegação, melhoria da experiência do usuário e evolução da gestão de conteúdo entre as diferentes unidades de negócio da marca. O novo modelo também serviu como base estrutural para os demais sites do ecossistema Portobello.</p>  </div>
-
-  <div class="projeto-header-meta">
-    <div class="meta-item">
-      <strong>Empresa</strong>
-      <span>Portobello Shop</span>
+  <div class="intro-full">
+    <div class="intro-textos">
+      <p class="resumo">Reformulação do site da Portobello Shop com foco na reorganização da navegação, melhoria da experiência do usuário e evolução da gestão de conteúdo entre as diferentes unidades de negócio da marca. O novo modelo também serviu como base estrutural para os demais sites do ecossistema Portobello.</p>
     </div>
-    <div class="meta-item">
-      <strong>Ano</strong>
-      <span>2023 – 2024</span>
-    </div>
-    <div class="meta-item">
-      <strong>Papel</strong>
-      <span>Product Designer</span>
-    </div>
-    <div class="meta-item">
-      <strong>Time</strong>
-      <span>Product Owner<br>Desenvolvedores</span>
-    </div>
-  </div>
-</div>
 
-<div class="hero-img-full">
-  <img src="img/capa-site.webp" alt="Imagem destaque do site" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-</div>
-
-<section class="content-section">
-  <div class="content-cols">
-    <span class="content-label">01 — contexto</span>
-    <div class="content-body">
-      <h2>Sobre a empresa</h2>
-
-<p>A Portobello é uma das maiores empresas de revestimentos cerâmicos do Brasil, com diferentes unidades de negócio, cada uma com públicos, estratégias e portfólios específicos dentro do ecossistema da marca.
-  <br>
-  <p>O seu portal digital registrou, em 2025, quase <strong>24 milhões de visualizações</strong> e mais de <strong>2,5 milhões de usuários</strong> ativos.</p> </div>
-  </div>
-</section>
-
-
-<section class="content-section">
-  <div class="content-cols">
-    <span class="content-label">02 — problema</span>
-    <div class="content-body">
-      <h2>Desafios da experiência e da arquitetura do portal</h2>
-
-<p>Quando passei a fazer parte do time de tecnologia, recebi a demanda de reformular o site e estruturar uma home que funcionasse como um portal personalizável, permitindo que cada unidade de negócio tivesse mais autonomia sem perder consistência na experiência.</p>
-
-<p>O primeiro passo foi entender o cenário existente e mapear os principais pontos de fricção do portal.</p>
-
-<p>Os <strong>portfólios das diferentes unidades apareciam misturados</strong>, sem uma separação clara entre marcas, produtos e contextos de navegação. O usuário acessava a Portobello Shop e tinha dificuldade para entender o que pertencia àquela unidade e o que fazia parte de outros canais da empresa.</p>
-
-<p>Essa confusão impactava diretamente a operação física: clientes chegavam às lojas Portobello Shop procurando produtos comercializados pelas outras Unidades de Negócio, reflexo de uma arquitetura que não deixava claras as diferenças entre as unidades.</p>
-
-<p>O fluxo até o produto também era <strong>extenso e fragmentado</strong>. O catálogo da empresa possui três níveis: linha, grupo de produto e produto e, no site antigo, navegar entre formatos e acabamentos da mesma coleção exigia voltar páginas constantemente. Comparar produtos dentro do mesmo grupo praticamente obrigava o usuário a reiniciar a navegação a cada interação.
-  Além de aumentar a <strong>carga cognitiva</strong>, esse fluxo tornava a pesquisa de produto cansativa e pouco eficiente.</p>
-
-<p>Internamente, o problema também era operacional: como o site era compartilhado entre todas as unidades, nenhuma delas tinha autonomia para gerenciar campanhas e conteúdos de forma independente. E tudo era feito manualmente, desde atualizações de portfólio até mudanças de conteúdo, o que <strong>gerava inconsistências</strong> constantes com o catálogo real de produtos.</p>    </div>
-  </div>
-  <div style="padding: 5vw 0 0;">
-  <div class="img-grid-2">
-    <img src="img/Site Portobello/Imagem-03.webp" alt="Site antigo" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
-    <img src="img/Site Portobello/imagem-07.webp" alt="Criação de wireframes e protótipos" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
-  </div>
-</div>
-</section>
-
-
-
-<section class="content-section" style="padding-top: 5vw;">
-  <div class="content-cols">
-    <span class="content-label">03 — Processo</span>
-    <div class="content-body">
-      <h2>Discovery e evolução da experiência</h2>
-
-<p>O projeto começou com análise de métricas e mapas de calor para identificar os <strong>principais pontos de fricção da navegação</strong>.</p>
-
-<p>A partir disso, defini os perfis centrais da Portobello Shop: especificadores (profissionais de arquitetura, engenharia e design), clientes familiarizados com a marca e usuários que chegavam ao portal sem referência prévia.</p>
-
-<p>Com esse recorte, conduzi uma <strong>pesquisa focada no comportamento de busca</strong> do público de revestimentos: como pesquisavam produtos, quais termos utilizavam e quais caminhos percorriam até encontrar o que precisavam.</p>
-
-<p>Também conversei com consultores das lojas físicas para complementar as análises quantitativas com contexto operacional. Essas conversas ajudaram a confirmar que <strong>parte das dúvidas no atendimento presencial</strong> vinha diretamente da estrutura confusa do portal.</p>
-
-<p>Com os principais insights consolidados, desenvolvi os wireframes iniciais e conduzi rodadas de validação com áreas estratégicas da empresa.</p>
-
-<p>Essa foi uma das etapas mais desafiadoras do projeto. Cada unidade tinha prioridades, necessidades e expectativas diferentes. Alinhar stakeholders sem background técnico e interesses muitas vezes conflitantes exigiu mediação constante, clareza de comunicação e <strong>capacidade de traduzir decisões de design em impacto de negócio</strong>.</p>
-
-<p>Após a validação da estrutura, desenvolvi os protótipos de alta fidelidade e <strong>participei do refinamento técnico e da homologação final</strong>, acompanhando a implementação para garantir consistência entre o que foi desenhado e o que foi entregue.</p>
-
-<p>O projeto levou cerca de seis meses entre pesquisa, validações, alinhamentos com áreas de negócio, refatoração das páginas de produto e implementação completa.</p>
+    <div class="projeto-header-meta">
+      <div class="meta-item">
+        <strong>Empresa</strong>
+        <span>Portobello Shop</span>
+      </div>
+      <div class="meta-item">
+        <strong>Ano</strong>
+        <span>2023 – 2024</span>
+      </div>
+      <div class="meta-item">
+        <strong>Papel</strong>
+        <span>Product Designer</span>
+      </div>
+      <div class="meta-item">
+        <strong>Time</strong>
+        <span>Product Owner<br>Desenvolvedores</span>
+      </div>
     </div>
   </div>
-  <div style="padding: 5vw 0 0;">
-    <div class="img-grid-2">
-    <img src="img/Site Portobello/Imagem-04.webp" alt="Prints do site novo" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
-    <img src="img/Site Portobello/Imagem-06.webp" alt="Página do produto" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
+
+  <div class="hero-img-full">
+    <img src="img/capa-site.webp" alt="Interface web redesenhada da página inicial da Portobello Shop" style="width: 100%; height: 100%; object-fit: cover; display: block;">
   </div>
-</div>
-</section>
 
+  <section class="content-section">
+    <div class="content-cols">
+      <span class="content-label">01 — contexto</span>
+      <div class="content-body">
+        <h2>Sobre a empresa</h2>
+        <p>A Portobello é uma das maiores empresas de revestimentos cerâmicos do Brasil, com diferentes unidades de negócio, cada uma com públicos, estratégias e portfólios específicos dentro do ecossistema da marca.</p>
+        <p>O seu portal digital registrou, em 2025, quase <strong>24 milhões de visualizações</strong> e mais de <strong>2,5 milhões de usuários</strong> ativos.</p> 
+      </div>
+    </div>
+  </section>
 
+  <section class="content-section">
+    <div class="content-cols">
+      <span class="content-label">02 — problema</span>
+      <div class="content-body">
+        <h2>Desafios da experiência e da arquitetura do portal</h2>
+        <p>Quando passei a fazer parte do time de tecnologia, recebi a demanda de reformular o site e estruturar uma home que funcionasse como um portal personalizável, permitindo que cada unidade de negócio tivesse mais autonomia sem perder consistência na experiência.</p>
+        <p>O primeiro passo foi entender o cenário existente e mapear os principais pontos de fricção do portal.</p>
+        <p>Os <strong>portfólios das diferentes unidades apareciam misturados</strong>, sem uma separação clara entre marcas, produtos e contextos de navegação. O usuário acessava a Portobello Shop e tinha dificuldade para entender o que pertencia àquela unidade e o que fazia parte de outros canais da empresa.</p>
+        <p>Essa confusão impactava diretamente a operação física: clientes chegavam às lojas Portobello Shop procurando produtos comercializados pelas outras Unidades de Negócio, reflexo de uma arquitetura que não deixava claras as diferenças entre as unidades.</p>
+        <p>O fluxo até o produto também era <strong>extenso e fragmentado</strong>. O catálogo da empresa possui três níveis: linha, grupo de produto e produto e, no site antigo, navegar entre formatos e acabamentos da mesma coleção exigia voltar páginas constantemente. Comparar produtos dentro do mesmo grupo praticamente obrigava o usuário a reiniciar a navegação a cada interação. Além de aumentar a <strong>carga cognitiva</strong>, esse fluxo tornava a pesquisa de produto cansativa e pouco eficiente.</p>
+        <p>Internamente, o problema também era operacional: como o site era compartilhado entre todas as unidades, nenhuma delas tinha autonomia para gerenciar campanhas e conteúdos de forma independente. E tudo era feito manualmente, desde atualizações de portfólio até mudanças de conteúdo, o que <strong>gerava inconsistências</strong> constantes com o catálogo real de produtos.</p>    
+      </div>
+    </div>
+    <div style="padding: 5vw 0 0;">
+      <div class="img-grid-2">
+        <img src="img/Site Portobello/Imagem-03.webp" alt="Captura de tela do site antigo exibindo a mistura de produtos de diferentes marcas" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
+        <img src="img/Site Portobello/imagem-07.webp" alt="Esboços de baixa fidelidade e wireframes da nova arquitetura de informação" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
+      </div>
+    </div>
+  </section>
 
+  <section class="content-section" style="padding-top: 5vw;">
+    <div class="content-cols">
+      <span class="content-label">03 — Processo</span>
+      <div class="content-body">
+        <h2>Discovery e evolução da experiência</h2>
+        <p>O projeto começou com análise de métricas e mapas de calor para identificar os <strong>principais pontos de fricção da navegação</strong>.</p>
+        <p>A partir disso, defini os perfis centrais da Portobello Shop: especificadores (profissionais de arquitetura, engenharia e design), clientes familiarizados com a marca e usuários que chegavam ao portal sem referência prévia.</p>
+        <p>Com esse recorte, conduzi uma <strong>pesquisa focada no comportamento de busca</strong> do público de revestimentos: como pesquisavam produtos, quais termos utilizavam e quais caminhos percorriam até encontrar o que precisavam.</p>
+        <p>Também conversei com consultores das lojas físicas para complementar as análises quantitativas com contexto operacional. Essas conversas ajudaram a confirmar que <strong>parte das dúvidas no atendimento presencial</strong> vinha diretamente da estrutura confusa do portal.</p>
+        <p>Com os principais insights consolidados, desenvolvi os wireframes iniciais e conduzi rodadas de validação com áreas estratégicas da empresa.</p>
+        <p>Essa foi uma das etapas mais desafiadoras do projeto. Cada unidade tinha prioridades, necessidades e expectativas diferentes. Alinhar stakeholders sem background técnico e interesses muitas vezes conflitantes exigiu mediação constante, clareza de comunicação e <strong>capacidade de traduzir decisões de design em impacto de negócio</strong>.</p>
+        <p>Após a validação da estrutura, desenvolvi os protótipos de alta fidelidade e <strong>participei do refinamento técnico e da homologação final</strong>, acompanhando a implementação para garantir consistência entre o que foi desenhado e o que foi entregue.</p>
+        <p>O projeto levou cerca de seis meses entre pesquisa, validações, alinhamentos com áreas de negócio, refatoração das páginas de produto e implementação completa.</p>
+      </div>
+    </div>
+    <div style="padding: 5vw 0 0;">
+      <div class="img-grid-2">
+        <img src="img/Site Portobello/Imagem-04.webp" alt="Telas finais do portal redesenhado com módulos dedicados para cada marca" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
+        <img src="img/Site Portobello/Imagem-06.webp" alt="Nova página interna de produto detalhando variações de acabamento e tamanho na mesma tela" style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px;">
+      </div>
+    </div>
+  </section>
 
-<section class="content-section" style="padding-top: 5vw;">
-  <div class="content-cols">
-    <span class="content-label">04 — Solução e Resultados</span>
-    <div class="content-body">
-      <h2>Evolução da arquitetura e descoberta de produtos</h2>
+  <section class="content-section" style="padding-top: 5vw;">
+    <div class="content-cols">
+      <span class="content-label">04 — Solução e Resultados</span>
+      <div class="content-body">
+        <h2>Evolução da arquitetura e descoberta de produtos</h2>
+        <p>A reorganização da arquitetura <strong>separou de forma mais clara</strong> os portfólios e contextos de cada unidade. Para a Portobello Shop, desenhei um fluxo dedicado, sem interferência das demais operações do grupo.</p>
+        <p>Nas páginas de produto, implementei seletores que permitiam navegar entre formatos, acabamentos e peças complementares sem perder o contexto da navegação. O que antes exigia múltiplos retornos entre páginas <strong>passou a acontecer dentro de uma única navegação</strong>.</p>
+        <p>A home também foi redesenhada para funcionar como um portal modular e personalizável, permitindo que <strong>cada unidade gerenciasse campanhas e conteúdos com mais autonomia</strong>, sem depender de uma estrutura centralizada para pequenas atualizações.</p>
+        <p>Um dos desafios mais complexos do projeto foi a automação das páginas de produto. Antes da reformulação, <strong>todo o conteúdo do site era atualizado manualmente</strong>, o que gerava inconsistências frequentes com o catálogo real da empresa. A Portobello já possuía uma API de produtos estruturada, mas ela ainda não era utilizada no portal.</p>
+        <p>Para viabilizar essa integração, <strong>precisei entender a lógica da API</strong> e a estrutura do catálogo da empresa. O portfólio envolvia revestimentos, peças de acabamento, mobiliário em porcelanato, metais, louças, rejuntes e argamassas — categorias com regras e especificidades próprias.</p>
+        <p>Trabalhei junto à Grupos Internet, parceira responsável pelo desenvolvimento do portal, para estruturar um <strong>modelo baseado nas classes de produto da API</strong>. O resultado foi um sistema capaz de montar páginas automaticamente a partir das características e atributos de cada produto, reduzindo trabalho manual e inconsistências operacionais.</p>
+        <p>A estrutura criada inicialmente para a Portobello Shop acabou <strong>servindo como base para as demais unidades do ecossistema</strong>, incluindo Multimarcas, Construtoras e Internacional.</p>
 
-<p>A reorganização da arquitetura <strong>separou de forma mais clara</strong> os portfólios e contextos de cada unidade. Para a Portobello Shop, desenhei um fluxo dedicado, sem interferência das demais operações do grupo.</p>
-
-<p>Nas páginas de produto, implementei seletores que permitiam navegar entre formatos, acabamentos e peças complementares sem perder o contexto da navegação. O que antes exigia múltiplos retornos entre páginas <strong>passou a acontecer dentro de uma única navegação</strong>.</p>
-
-<p>A home também foi redesenhada para funcionar como um portal modular e personalizável, permitindo que <strong>cada unidade gerenciasse campanhas e conteúdos com mais autonomia</strong>, sem depender de uma estrutura centralizada para pequenas atualizações.</p>
-
-<p>Um dos desafios mais complexos do projeto foi a automação das páginas de produto. Antes da reformulação, <strong>todo o conteúdo do site era atualizado manualmente</strong>, o que gerava inconsistências frequentes com o catálogo real da empresa. A Portobello já possuía uma API de produtos estruturada, mas ela ainda não era utilizada no portal.</p>
-
-<p>Para viabilizar essa integração, <strong>precisei entender a lógica da API</strong> e a estrutura do catálogo da empresa. O portfólio envolvia revestimentos, peças de acabamento, mobiliário em porcelanato, metais, louças, rejuntes e argamassas — categorias com regras e especificidades próprias.</p>
-
-<p>Trabalhei junto à Grupos Internet, parceira responsável pelo desenvolvimento do portal, para estruturar um <strong>modelo baseado nas classes de produto da API</strong>. O resultado foi um sistema capaz de montar páginas automaticamente a partir das características e atributos de cada produto, reduzindo trabalho manual e inconsistências operacionais.</p>
-
-<p>A estrutura criada inicialmente para a Portobello Shop acabou <strong>servindo como base para as demais unidades do ecossistema</strong>, incluindo Multimarcas, Construtoras e Internacional.</p>
-
-      <div class="metrics reveal">
-        <div class="metrics-grid">
-          <div class="metric">
-            <span class="metric-n">31%</span>
-            <span class="metric-d">mais páginas visitadas por sessão</span>
-          </div>
-
-          <div class="metric">
-            <span class="metric-n">50%</span>
-            <span class="metric-d">mais tempo ativo de navegação</span>
-          </div>
-
-          <div class="metric">
-            <span class="metric-n">60%</span>
-            <span class="metric-d">menos níveis de clique até o produto</span>
-          </div>
-
-          <div class="metric">
-            <span class="metric-n">46%</span>
-            <span class="metric-d">mais usuários recorrentes no portal</span>
+        <div class="metrics reveal">
+          <div class="metrics-grid">
+            <div class="metric">
+              <span class="metric-n">31%</span>
+              <span class="metric-d">mais páginas visitadas por sessão</span>
+            </div>
+            <div class="metric">
+              <span class="metric-n">50%</span>
+              <span class="metric-d">mais tempo ativo de navegação</span>
+            </div>
+            <div class="metric">
+              <span class="metric-n">60%</span>
+              <span class="metric-d">menos níveis de clique até o produto</span>
+            </div>
+            <div class="metric">
+              <span class="metric-n">46%</span>
+              <span class="metric-d">mais usuários recorrentes no portal</span>
+            </div>
           </div>
         </div>
+        <p style="font-size: 0.8rem; color: var(--fg3); text-align: left; margin-bottom: 2rem;">
+          *Dados obtidos via Microsoft Clarity e análises internas comparando os períodos anterior e posterior ao redesign da navegação da Portobello Shop.
+        </p>
       </div>
-
-      <p style="font-size: 0.8rem; color: var(--fg3); text-align: left; margin-bottom: 2rem;">
-        *Dados obtidos via Microsoft Clarity e análises internas comparando os períodos anterior e posterior ao redesign da navegação da Portobello Shop.
-      </p>
     </div>
-  </div>
 
-  <div class="timeline-img">
-    <img src="img/Site Portobello/Imagem-05.webp" alt="Página da linha e produto" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-  </div>
-</section></div>
+    <div class="timeline-img">
+      <img src="img/Site Portobello/Imagem-05.webp" alt="Interface final demonstrando o encadeamento dinâmico de produtos por coleção" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+</main>
 
-<br><br><br>
 <div class="project-navigation">
   <a href="ds-portobello.html" class="nav-btn prev">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path d="M3 8h10M9 4l4 4-4 4"/>
     </svg>
     DS Portobello
   </a>
   <a href="shop-360.html" class="nav-btn next">
     Shop360
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path d="M3 8h10M9 4l4 4-4 4"/>
     </svg>
   </a>
@@ -214,26 +184,27 @@
 </footer>
 
 <script>
-  // Proteção de imagens e menu mobile
-  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
-  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
-  });
-
   const ham = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
   
   ham.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    const isOpen = nav.classList.toggle('open');
+    ham.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', () => {
       nav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
+  });
+
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
   });
 </script>
 </body>

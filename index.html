@@ -15,13 +15,13 @@
 <body class="no-select">
 
 <nav id="nav">
-  <a href="#" class="nav-logo">GABIDALBÓ</a>
+  <a href="#" class="nav-logo" aria-label="GABIDALBÓ - Página Inicial">GABIDALBÓ</a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#projetos">Projetos</a></li>
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Abrir Menu de Navegação" aria-expanded="false" aria-controls="nav-links">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2">
       <line id="h1" x1="2" y1="6" x2="20" y2="6"/>
       <line id="h2" x1="2" y1="11" x2="20" y2="11"/>
@@ -30,242 +30,237 @@
   </button>
 </nav>
 
-<section class="hero">
-  <div class="hero-content">
-    <p class="hero-label">Product Designer Specialist · UX/UI Designer · UX Research</p>
-    <h1 class="hero-title">
-      GABI<br class="mobile-only">DALBÓ
-    </h1>
-    <div class="hero-bottom">
-<p class="hero-bio">
-  Product Designer Specialist com mais de 10 anos de experiência, atuando na criação e evolução de experiências escaláveis, arquitetura de produto, Design System e projetos de identidade visual e branding.
-</p>
-      <a href="#projetos" class="hero-cta">
-        Ver projetos
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 8h10M9 4l4 4-4 4"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="projetos">
-  <div class="section-header">
-    <span class="section-title">Projetos</span>
-    <div class="filter-container">
-      <button class="filter-btn active" data-filter="featured">Destaques</button>
-      <button class="filter-btn" data-filter="digital">Digital</button>
-      <button class="filter-btn" data-filter="visual">Visual</button>
-    </div>
-  </div>
-
-  <div class="projects-grid">
-    <a href="ds-portobello.html" class="project-card large"  data-featured="true">
-      <img src="img/capa-ds.webp" alt="Capa do projeto DS Site Portobello" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag">Design System</span>
-          <span class="tag">Governance</span>
-          <span class="tag">Product Design</span>
-        </div>
-        <h3 class="project-name">Design System Site Portobello</h3>
-        <p class="project-desc">Desenvolvimento do primeiro Design System da Portobello, padronizando a identidade visual, componentes e estrutura do portal. A entrega envolveu a reformulação de mais de 148 páginas, substituição de 400 componentes legados por 146 reutilizáveis e uma redução de 94% no peso das bibliotecas visuais.</p>
-      </div>
-      <div class="project-arrow">
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </div>
-    </a>
-
-    <a href="site-portobello.html" class="project-card"  data-featured="true">
-      <img src="img/capa-site.webp" alt="Capa do projeto Site Portobello" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag">UX Research</span>
-          <span class="tag">UI Design</span>
-          <span class="tag">Web</span>
-        </div>
-        <h3 class="project-name">Site Portobello Shop</h3>
-        <p class="project-desc">Reformulação do site da Portobello Shop com foco na reorganização da navegação, melhoria da experiência do usuário e evolução da gestão de conteúdo entre as diferentes unidades de negócio da marca.</p>
-      </div>
-      <div class="project-arrow">
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </div>
-    </a>
-
-    <a href="shop-360.html" class="project-card" data-featured="true">
-      <img src="img/capa-360.webp" alt="Capa do projeto 360" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag">Product Design</span>
-          <span class="tag">SaaS</span>
-          <span class="tag">B2B</span>
-        </div>
-        <h3 class="project-name">Shop 360</h3>
-        <p class="project-desc">Desenvolvimento das interfaces do Shop360, plataforma de vendas da Portobello Shop, com criação das telas do produto desde as primeiras versões e estruturação inicial do Design System.</p>
-      </div>
-      <div class="project-arrow">
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </div>
-    </a>
-
-<a href="app-arq.html" class="project-card" data-category="digital" data-featured="false">
-      <img src="img/capa-app-arq.webp" alt="Capa do projeto +Arquitetura" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag">Product Design</span>
-          <span class="tag">iOS/Android</span>
-          <span class="tag">Mobile</span>
-        </div>
-        <h3 class="project-name">App +Arquitetura</h3>
-        <p class="project-desc">Redesign do aplicativo +Arquitetura, canal de relacionamento da Portobello com especificadores. O projeto partiu de uma atualização de identidade visual e evoluiu para uma revisão estrutural dos fluxos do produto.</p>
-      </div>
-      <div class="project-arrow">
-        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </div>
-    </a>
-
-    <div class="project-card is-locked" data-category="digital" data-featured="false">
-      <img src="img/capa-app-cuidar.webp" alt="Capa do projeto App Cuidar" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag status-coming">Em breve</span> 
-        </div>
-        <h3 class="project-name">Aplicativo Cuid@r</h3>
-        <p class="project-desc">Desenvolvimento da UI de um aplicativo criado para auxiliar pacientes e acompanhantes com orientações antes e após procedimentos cirúrgicos, facilitando o acesso às informações e contribuindo para uma recuperação mais segura.</p>
-      </div>
-    </div>
-
-    <div class="project-card is-locked" data-category="visual" data-featured="false">
-      <img src="img/capa-cugler.jpg" alt="Capa do projeto Cugler" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag status-coming">Em breve</span> 
-        </div>
-        <h3 class="project-name">Cugler - Advocacia</h3> <p class="project-desc">   Mais em breve.
-</p>
-      </div>
-    </div>
-
-
-        <div class="project-card is-locked" data-category="visual" data-featured="false">
-      <img src="img/capa-adknown.jpg" alt="Capa do projeto Adknow" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag status-coming">Em breve</span> 
-        </div>
-        <h3 class="project-name">Adknow</h3> <p class="project-desc">  Mais em breve.</p>
-      </div>
-    </div>
-
-
-        <div class="project-card is-locked" data-category="visual" data-featured="false">
-      <img src="img/capa-rafa-martins.jpg" alt="Capa do projeto Rafa Martins" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag status-coming">Em breve</span> 
-        </div>
-        <h3 class="project-name">Rafa Martins - Doces & Salgados</h3> <p class="project-desc">    Mais em breve.
-</p>
-      </div>
-    </div>
-
-        <div class="project-card is-locked" data-category="visual" data-featured="false">
-      <img src="img/capa-experience-portobello.jpg" alt="Capa do projeto Portobello Experience" class="project-img">
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag status-coming">Em breve</span> 
-        </div>
-        <h3 class="project-name">Coleção Portobello Experience</h3> <p class="project-desc">   Mais em breve.
-</p>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-label">Product Designer Specialist · UX/UI Designer · UX Research</p>
+      <h1 class="hero-title">
+        GABI<br class="mobile-only">DALBÓ
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-bio">
+          Product Designer Specialist com mais de 10 anos de experiência, atuando na criação e evolução de experiências escaláveis, architecture de produto, Design System e projetos de identidade visual e branding.
+        </p>
+        <a href="#projetos" class="hero-cta">
+          Ver projetos
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-<section id="sobre">
-  <div class="section-header">
-    <span class="section-title">Sobre mim</span>
-  </div>
-
-  <div class="about-grid">
-    <div class="about-text">
-
-      <h2>Oi, eu sou a Gabi.</h2>
-
-      <p>
-        Sou formada em Design de Produto pela UDESC e atuo como <strong>Product Designer Specialist</strong>, trabalhando na evolução de produtos digitais, estruturação de experiências escaláveis e construção de Design Systems.
-      </p>
-
-      <p>
-        Com mais de 10 anos de experiência em design, tenho atuação focada em <strong>Product Design, UX e sistemas de interface</strong>, conectando experiência do usuário, viabilidade técnica e objetivos de negócio para criar produtos mais consistentes e sustentáveis.
-      </p>
-
-      <p>
-        Trabalho próxima de times de produto, tecnologia e desenvolvimento, participando de discovery, definição de melhorias, refinamento de soluções, homologação e evolução contínua das interfaces.
-      </p>
-
-      <p>
-        Também mentoro <strong>designers em início de carreira</strong>, compartilhando processos, boas práticas e direcionamentos no dia a dia dos projetos.
-      </p>
-
-<div class="skills-grid">
-
-  <div class="skill-item">
-    <h4>Ferramentas & frameworks</h4>
-    <div class="skill-list">
-      Figma<br>
-      HTML & CSS<br>
-      Analytics & Heatmaps
-    </div>
-  </div>
-
-  <div class="skill-item">
-    <h4>Áreas de atuação</h4>
-    <div class="skill-list">
-      Product Design<br>
-      Design Systems<br>
-      UX Strategy<br>
-      Accessibility & Responsive Design
-    </div>
-  </div>
-
-  <div class="skill-item">
-    <h4>Métodos & práticas</h4>
-    <div class="skill-list">
-      Product Discovery<br>
-      Lean UX<br>
-      Design Thinking<br>
-      Heurísticas de Nielsen
-    </div>
-  </div>
-
-  <div class="skill-item">
-    <h4>Idiomas</h4>
-    <div class="skill-list">
-      Português<br>
-      Inglês
-    </div>
-  </div>
-
+  <section id="projetos" aria-label="Meus Projetos">
+    <div class="section-header">
+      <span class="section-title">Projetos</span>
+      <div class="filter-container" role="group" aria-label="Filtrar projetos">
+        <button class="filter-btn active" data-filter="featured" aria-pressed="true">Destaques</button>
+        <button class="filter-btn" data-filter="digital" aria-pressed="false">Digital</button>
+        <button class="filter-btn" data-filter="visual" aria-pressed="false">Visual</button>
       </div>
     </div>
 
-    <div class="about-image">
-      <img src="img/gabidalbo.webp" alt="Foto de Gabriela DalBó">
-    </div>
-  </div>
-</section>
+    <div class="projects-grid">
+      <a href="ds-portobello.html" class="project-card large" data-featured="true">
+        <img src="img/capa-ds.webp" alt="Interface expandida mostrando componentes e documentação do Design System Site Portobello" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag">Design System</span>
+            <span class="tag">Governance</span>
+            <span class="tag">Product Design</span>
+          </div>
+          <h3 class="project-name">Design System Site Portobello</h3>
+          <p class="project-desc">Desenvolvimento do primeiro Design System da Portobello, padronizando a identidade visual, componentes e estrutura do portal. A entrega envolveu a reformulação de mais de 148 páginas, substituição de 400 componentes legados por 146 reutilizáveis e uma redução de 94% no peso das bibliotecas visuais.</p>
+        </div>
+        <div class="project-arrow">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </a>
 
-<section id="contato">
-  <div class="contact-inner">
-    <h2>Vamos conversar?</h2>
-    <div class="contact-links">
-      <a href="mailto:dalbo.gabriela@gmail.com" class="contact-link">dalbo.gabriela@gmail.com →</a>
-      <a href="https://linkedin.com/in/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">LinkedIn →</a>
-      <a href="https://www.behance.net/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">Behance →</a>
+      <a href="site-portobello.html" class="project-card" data-featured="true">
+        <img src="img/capa-site.webp" alt="Mockup responsivo do novo site da Portobello Shop em desktop e mobile" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag">UX Research</span>
+            <span class="tag">UI Design</span>
+            <span class="tag">Web</span>
+          </div>
+          <h3 class="project-name">Site Portobello Shop</h3>
+          <p class="project-desc">Reformulação do site da Portobello Shop com foco na reorganização da navegação, melhoria da experiência do usuário e evolução da gestão de conteúdo entre as diferentes unidades de negócio da marca.</p>
+        </div>
+        <div class="project-arrow">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </a>
+
+      <a href="shop-360.html" class="project-card" data-featured="true">
+        <img src="img/capa-360.webp" alt="Tela inicial da plataforma B2B Shop 360 exibindo o painel comercial de vendas" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag">Product Design</span>
+            <span class="tag">SaaS</span>
+            <span class="tag">B2B</span>
+          </div>
+          <h3 class="project-name">Shop 360</h3>
+          <p class="project-desc">Desenvolvimento das interfaces do Shop360, plataforma de vendas da Portobello Shop, com criação das telas do produto desde as primeiras versões e estruturação inicial do Design System.</p>
+        </div>
+        <div class="project-arrow">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </a>
+
+      <a href="app-arq.html" class="project-card" data-category="digital" data-featured="false">
+        <img src="img/capa-app-arq.webp" alt="Interfaces de login e acompanhamento de pontos do aplicativo mobile +Arquitetura" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag">Product Design</span>
+            <span class="tag">iOS/Android</span>
+            <span class="tag">Mobile</span>
+          </div>
+          <h3 class="project-name">App +Arquitetura</h3>
+          <p class="project-desc">Redesign do aplicativo +Arquitetura, canal de relacionamento da Portobello com especificadores. O projeto partiu de uma atualização de identidade visual e evoluiu para uma revisão estrutural dos fluxos do produto.</p>
+        </div>
+        <div class="project-arrow">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </div>
+      </a>
+
+      <div class="project-card is-locked" data-category="digital" data-featured="false">
+        <img src="img/capa-app-cuidar.webp" alt="Visualização prévia do Aplicativo Cuid@r - Projeto em desenvolvimento" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag status-coming">Em breve</span> 
+          </div>
+          <h3 class="project-name">Aplicativo Cuid@r</h3>
+          <p class="project-desc">Desenvolvimento da UI de um aplicativo criado para auxiliar pacientes e acompanhantes com orientações antes e após procedimentos cirúrgicos, facilitando o acesso às informações e contribuindo para uma recuperação mais segura.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="visual" data-featured="false">
+        <img src="img/capa-cugler.jpg" alt="Visualização prévia da identidade visual da Cugler Advocacia - Em breve" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag status-coming">Em breve</span> 
+          </div>
+          <h3 class="project-name">Cugler - Advocacia</h3> 
+          <p class="project-desc">Mais em breve.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="visual" data-featured="false">
+        <img src="img/capa-adknown.jpg" alt="Visualização do projeto de branding Adknow - Em breve" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag status-coming">Em breve</span> 
+          </div>
+          <h3 class="project-name">Adknow</h3> 
+          <p class="project-desc">Mais em breve.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="visual" data-featured="false">
+        <img src="img/capa-rafa-martins.jpg" alt="Embalagens e logotipo para Rafa Martins Doces & Salgados - Em breve" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag status-coming">Em breve</span> 
+          </div>
+          <h3 class="project-name">Rafa Martins - Doces & Salgados</h3> 
+          <p class="project-desc">Mais em breve.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="visual" data-featured="false">
+        <img src="img/capa-experience-portobello.jpg" alt="Catálogo visual da Coleção Portobello Experience - Em breve" class="project-img">
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag status-coming">Em breve</span> 
+          </div>
+          <h3 class="project-name">Coleção Portobello Experience</h3> 
+          <p class="project-desc">Mais em breve.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="sobre" aria-label="Sobre mim">
+    <div class="section-header">
+      <span class="section-title">Sobre mim</span>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Oi, eu sou a Gabi.</h2>
+        <p>
+          Sou formada em Design de Produto pela UDESC e atuo como <strong>Product Designer Specialist</strong>, trabalhando na evolução de produtos digitais, estruturação de experiências escaláveis e construção de Design Systems.
+        </p>
+        <p>
+          Com mais de 10 anos de experiência em design, tenho atuação focada em <strong>Product Design, UX e sistemas de interface</strong>, conectando experiência do usuário, viabilidade técnica e objetivos de negócio para criar produtos mais consistentes e sustentáveis.
+        </p>
+        <p>
+          Trabalho próxima de times de produto, tecnologia e desenvolvimento, participando de discovery, definição de melhorias, refinamento de soluções, homologação e evolução contínua das interfaces.
+        </p>
+        <p>
+          Também mentoro <strong>designers em início de carreira</strong>, compartilhando processos, boas práticas e direcionamentos no dia a dia dos projetos.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-item">
+            <h4>Ferramentas & frameworks</h4>
+            <div class="skill-list">
+              Figma<br>
+              HTML & CSS<br>
+              Analytics & Heatmaps
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <h4>Áreas de atuação</h4>
+            <div class="skill-list">
+              Product Design<br>
+              Design Systems<br>
+              UX Strategy<br>
+              Accessibility & Responsive Design
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <h4>Métodos & práticas</h4>
+            <div class="skill-list">
+              Product Discovery<br>
+              Lean UX<br>
+              Design Thinking<br>
+              Heurísticas de Nielsen
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <h4>Idiomas</h4>
+            <div class="skill-list">
+              Português<br>
+              Inglês
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <img src="img/gabidalbo.webp" alt="Foto profissional em estúdio de Gabriela DalBó, sorrindo de frente para a câmera">
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" aria-label="Contato">
+    <div class="contact-inner">
+      <h2>Vamos conversar?</h2>
+      <div class="contact-links">
+        <a href="mailto:dalbo.gabriela@gmail.com" class="contact-link">dalbo.gabriela@gmail.com →</a>
+        <a href="https://linkedin.com/in/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">LinkedIn →</a>
+        <a href="https://www.behance.net/gabrieladalbo" target="_blank" rel="noopener" class="contact-link">Behance →</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
   <span>© 2026 Gabriela DalBó</span>
@@ -284,13 +279,15 @@
   const nav = document.getElementById('nav');
   
   ham.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    const isOpen = nav.classList.toggle('open');
+    ham.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', () => {
       nav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });
@@ -300,8 +297,12 @@
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
+      filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      });
       button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
 
       const filterValue = button.getAttribute('data-filter');
 

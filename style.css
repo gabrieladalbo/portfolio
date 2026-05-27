@@ -86,6 +86,14 @@ img {
   display: none; 
 }
 
+/* Indicadores de Acessibilidade (Foco pelo Teclado) */
+a:focus-visible,
+button:focus-visible,
+.project-card:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+}
+
 
 /* ==========================================================================
    2. COMPONENTES REUTILIZÁVEIS (Navegação, Footer, Botões)
@@ -137,7 +145,7 @@ nav {
 /* Menu Hamburguer */
 .hamburger { 
   display: none; 
-  background: none; 
+  background: transparent; 
   border: none;       
   cursor: pointer;     
   padding: 4px; 
@@ -187,6 +195,10 @@ footer {
   gap: 1rem;
   border-top: 1px solid var(--border);
   background-color: var(--fg);
+}
+
+footer span {
+  color: var(--bg);
 }
 
 
@@ -380,30 +392,23 @@ footer {
 /* ==========================================================================
    Variação: Card Bloqueado (Em Breve)
    ========================================================================== */
-
-/* Remove o ponteiro de clique e os efeitos de hover no card */
 .project-card.is-locked {
   cursor: not-allowed;
-  /* Opcional: reduz um pouco a opacidade para dar efeito de desabilitado */
   opacity: 0.75; 
 }
 
-/* Anula o efeito de levantar o card no hover */
 .project-card.is-locked:hover {
   transform: none;
 }
 
-/* Anula o efeito de zoom na imagem no hover */
 .project-card.is-locked:hover .project-img {
   transform: none;
 }
 
-/* Garante que a seta de link nunca apareça nos cards bloqueados */
 .project-card.is-locked .project-arrow {
   display: none !important;
 }
 
-/* Estilização opcional para uma tag específica de "Em breve" */
 .tag.status-coming {
   background: var(--fg);
   color: var(--bg);
@@ -532,7 +537,7 @@ footer {
    4. ESTRUTURAS DE PÁGINAS INTERNAS (Projetos / Case Studies)
    ========================================================================== */
 
-   /* --- A. Cabeçalhos e Introduções (Textos e Métricas Iniciais) --- */
+/* --- A. Cabeçalhos e Introduções (Textos e Métricas Iniciais) --- */
 .projeto-header {
   padding: calc(var(--nav-h) + 10vh) 5vw 4rem;
   display: grid;
@@ -615,7 +620,7 @@ footer {
   letter-spacing: 0.1em;
 }
 
-   /* --- B. Layouts de Conteúdo Editorial e Seções Alternadas --- */
+/* --- B. Layouts de Conteúdo Editorial e Seções Alternadas --- */
 .content-section {
   padding: 6vh 5vw;
 }
@@ -645,6 +650,14 @@ footer {
   letter-spacing: -0.01em;
   line-height: 1.1;
   margin-bottom: 1.5rem;
+}
+
+.content-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .content-body p {
@@ -708,7 +721,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-   /* --- C. Cronograma / Linha do Tempo (Timeline) --- */
+/* --- C. Cronograma / Linha do Tempo (Timeline) --- */
 .timeline-wrap { 
   padding: 8vh 5vw; 
 }
@@ -800,7 +813,7 @@ footer {
   margin-bottom: 1.5rem; 
 }
 
-   /* --- D. Galeria de Imagens, Mosaicos e Elementos Visuais --- */
+/* --- D. Galeria de Imagens, Mosaicos e Elementos Visuais --- */
 .hero-img-full { 
   display: block; 
   width: 100%; 
@@ -919,7 +932,7 @@ footer {
   font-weight: 700;
 }
 
-   /* --- E. Blocos de Métricas (Dados e Números) --- */
+/* --- E. Blocos de Métricas (Dados e Números) --- */
 .metrics { 
   margin: 3rem 0; 
 }
@@ -1081,4 +1094,28 @@ footer {
   .metrics-grid { grid-template-columns: 1fr; }
   .metrics-dark .metrics-grid { grid-template-columns: 1fr 1fr; }
   .project-navigation { flex-direction: row; justify-content: space-between; align-items: center; gap: 1rem; }
+}
+
+/* ==========================================================================
+   7. ACESSIBILIDADE E PREFERÊNCIAS DO SISTEMA
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  *, *::before, *::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+
+  .hero-label, .hero-title, .hero-bottom, .projeto-header h1, .projeto-header-meta {
+    opacity: 1 !important;
+    animation: none !important;
+  }
 }
