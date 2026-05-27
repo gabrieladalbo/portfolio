@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CONFIGURAÇÕES GLOBAIS E ESTILOS COMPARTILHADOS (Semelhanças)
+   1. CONFIGURAÇÕES GLOBAIS E ESTILOS COMPARTILHADOS
    ========================================================================== */
 *, *::before, *::after { 
   box-sizing: border-box; 
@@ -68,21 +68,29 @@ strong,
   color: var(--fg);
 }
 
-/* Bloqueio de cópia e ações sobre imagens */
+/* Proteção de Mídia e Seleção */
 img {
-  pointer-events: none; /* Impede clique com botão direito direto, arrastar ou abrir em nova aba */
-  -webkit-touch-callout: none; /* Impede o menu contextual no iOS */
+  pointer-events: none; 
+  -webkit-touch-callout: none; 
 }
 
 .no-select {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; /* Impede seleção de textos acidentais ao tentar copiar */
+  user-select: none; 
 }
+
+/* Elemento Utilitário */
+.mobile-only { 
+  display: none; 
+}
+
+
 /* ==========================================================================
    2. COMPONENTES REUTILIZÁVEIS (Navegação, Footer, Botões)
    ========================================================================== */
+/* Menu de Navegação */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -122,8 +130,11 @@ nav {
   text-transform: uppercase;
 }
 
-.nav-links a:hover { color: var(--fg); }
+.nav-links a:hover { 
+  color: var(--fg); 
+}
 
+/* Menu Hamburguer */
 .hamburger { 
   display: none; 
   background: none; 
@@ -143,6 +154,7 @@ nav.open #h1 { transform: translateY(5px) rotate(45deg); }
 nav.open #h2 { opacity: 0; }
 nav.open #h3 { transform: translateY(-5px) rotate(-45deg); }
 
+/* Botões e Links de Ação */
 .nav-btn {
   display: inline-flex;
   align-items: center;
@@ -159,9 +171,11 @@ nav.open #h3 { transform: translateY(-5px) rotate(-45deg); }
   transition: gap 0.2s;
   white-space: nowrap;
 }
+
 .nav-btn:hover { gap: 1rem; }
 .nav-btn.prev svg { transform: rotate(180deg); }
 
+/* Rodapé */
 footer {
   padding: 2rem 5vw;
   display: flex;
@@ -175,9 +189,11 @@ footer {
   background-color: var(--fg);
 }
 
+
 /* ==========================================================================
    3. ESTILOS DA HOME (index.html)
    ========================================================================== */
+/* Hero Section */
 .hero {
   min-height: 100svh;
   padding: var(--nav-h) 5vw 0; 
@@ -249,71 +265,274 @@ footer {
   padding-bottom: 4px;
   transition: gap 0.2s;
 }
+
 .hero-cta:hover { gap: 1rem; }
 
 /* Grid de Projetos e Filtros */
-.filter-container { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filter-container { 
+  display: flex; 
+  gap: 0.5rem; 
+  flex-wrap: wrap; 
+}
+
 .filter-btn {
-  background: transparent; border: 1px solid var(--border); border-radius: 100px;
-  font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
-  text-transform: uppercase; color: var(--fg2); cursor: pointer; padding: 6px 16px;
+  background: transparent; 
+  border: 1px solid var(--border); 
+  border-radius: 100px;
+  font-family: var(--font-body); 
+  font-size: 0.75rem; 
+  font-weight: 700; 
+  letter-spacing: 0.04em;
+  text-transform: uppercase; 
+  color: var(--fg2); 
+  cursor: pointer; 
+  padding: 6px 16px;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
+
 .filter-btn:hover { border-color: var(--fg); color: var(--fg); }
 .filter-btn.active { background: var(--fg); border-color: var(--fg); color: var(--bg); }
 
-.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.projects-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 1.5rem; 
+}
+
 .project-card {
-  display: block; text-decoration: none; color: inherit; background: var(--card-bg);
-  border-radius: 16px; overflow: hidden; position: relative; cursor: pointer;
+  display: block; 
+  text-decoration: none; 
+  color: inherit; 
+  background: var(--card-bg);
+  border-radius: 16px; 
+  overflow: hidden; 
+  position: relative; 
+  cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
 }
+
 .project-card:hover { transform: translateY(-6px); }
 .project-card.large { grid-column: span 2; }
 .project-card.hidden { display: none; }
-.project-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--card-bg); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+
+.project-img { 
+  width: 100%; 
+  aspect-ratio: 16/9; 
+  object-fit: cover; 
+  display: block; 
+  background: var(--card-bg); 
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); 
+}
+
 .project-card:hover .project-img { transform: scale(1.015); }
 .project-info { padding: 1.5rem; }
-.project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-.tag { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg3); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; }
-.project-name { font-family: var(--font-body); font-weight: 700; font-size: 1.5rem; margin-bottom: 0.4rem; letter-spacing: 0.01em; }
-.project-desc { font-size: 0.95rem; color: var(--fg2); font-weight: 300; }
-.project-arrow {
-  position: absolute; top: 1.5rem; right: 1.5rem; width: 36px; height: 36px; background: var(--fg);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0;
-  transform: scale(0.7); transition: opacity 0.25s, transform 0.25s;
+
+.project-tags { 
+  display: flex; 
+  gap: 0.5rem; 
+  flex-wrap: wrap; 
+  margin-bottom: 0.75rem; 
 }
+
+.tag { 
+  font-size: 0.7rem; 
+  letter-spacing: 0.08em; 
+  text-transform: uppercase; 
+  color: var(--fg3); 
+  border: 1px solid var(--border); 
+  border-radius: 100px; 
+  padding: 3px 10px; 
+}
+
+.project-name { 
+  font-family: var(--font-body); 
+  font-weight: 700; 
+  font-size: 1.5rem; 
+  margin-bottom: 0.4rem; 
+  letter-spacing: 0.01em; 
+}
+
+.project-desc { 
+  font-size: 0.95rem; 
+  color: var(--fg2); 
+  font-weight: 300; 
+}
+
+.project-arrow {
+  position: absolute; 
+  top: 1.5rem; 
+  right: 1.5rem; 
+  width: 36px; 
+  height: 36px; 
+  background: var(--fg);
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  opacity: 0;
+  transform: scale(0.7); 
+  transition: opacity 0.25s, transform 0.25s;
+}
+
 .project-card:hover .project-arrow { opacity: 1; transform: scale(1); }
 .project-arrow svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; }
 
-/* Seção Sobre */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-.about-image { position: sticky; top: calc(var(--nav-h) + 2rem); width: 100%; }
-.about-image img { width: 100%; height: auto; max-height: calc(100vh - var(--nav-h) - 4rem); display: block; border-radius: 16px; object-fit: cover; }
-.about-text h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
-.about-text p { font-size: 1.05rem; color: var(--fg2); font-weight: 300; margin-bottom: 1.2rem; line-height: 1.7; }
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; margin-top: 3.5rem; width: 100%; }
-.skill-item { border-top: 1px solid var(--border); padding-top: 1rem; display: block; }
-.skill-item h4 {   margin-bottom: 0.25rem;
+/* ==========================================================================
+   Variação: Card Bloqueado (Em Breve)
+   ========================================================================== */
+
+/* Remove o ponteiro de clique e os efeitos de hover no card */
+.project-card.is-locked {
+  cursor: not-allowed;
+  /* Opcional: reduz um pouco a opacidade para dar efeito de desabilitado */
+  opacity: 0.75; 
+}
+
+/* Anula o efeito de levantar o card no hover */
+.project-card.is-locked:hover {
+  transform: none;
+}
+
+/* Anula o efeito de zoom na imagem no hover */
+.project-card.is-locked:hover .project-img {
+  transform: none;
+}
+
+/* Garante que a seta de link nunca apareça nos cards bloqueados */
+.project-card.is-locked .project-arrow {
+  display: none !important;
+}
+
+/* Estilização opcional para uma tag específica de "Em breve" */
+.tag.status-coming {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+/* Seção Sobre (About) */
+.about-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 4rem; 
+  align-items: start; 
+}
+
+.about-image { 
+  position: sticky; 
+  top: calc(var(--nav-h) + 2rem); 
+  width: 100%; 
+}
+
+.about-image img { 
+  width: 100%; 
+  height: auto; 
+  max-height: calc(100vh - var(--nav-h) - 4rem); 
+  display: block; 
+  border-radius: 16px; 
+  object-fit: cover; 
+}
+
+.about-text h2 { 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  font-size: clamp(2.5rem, 5vw, 4rem); 
+  line-height: 1.1; 
+  margin-bottom: 1.5rem; 
+  letter-spacing: -0.01em; 
+}
+
+.about-text p { 
+  font-size: 1.05rem; 
+  color: var(--fg2); 
+  font-weight: 300; 
+  margin-bottom: 1.2rem; 
+  line-height: 1.7; 
+}
+
+.skills-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 2rem 3rem; 
+  margin-top: 3.5rem; 
+  width: 100%; 
+}
+
+.skill-item { 
+  border-top: 1px solid var(--border); 
+  padding-top: 1rem; 
+  display: block; 
+}
+
+.skill-item h4 {   
   font-family: var(--font-body);
   font-size: 0.72rem;
   color: var(--fg3);
   text-transform: uppercase;
-  letter-spacing: 0.1em; margin-bottom: 0.75rem; font-weight: 400;}
-.skill-list {   font-size: 0.85rem; 
+  letter-spacing: 0.1em; 
+  margin-bottom: 0.75rem; 
+  font-weight: 400;
+}
+
+.skill-list {   
+  font-size: 0.85rem; 
   color: var(--fg); 
-  line-height: 1.4;  font-weight: 400; line-height: 1.7; }
+  font-weight: 400; 
+  line-height: 1.7; 
+}
 
 /* Seção Contato */
-.contact-inner { background: var(--fg); color: var(--bg); border-radius: 24px; padding: 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
-.contact-inner h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 0.95; letter-spacing: -0.01em; max-width: 480px; }
-.contact-links { display: flex; flex-direction: column; gap: 1.2rem; }
-.contact-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 4px; transition: color 0.2s, border-color 0.2s, gap 0.2s; }
+.contact-inner { 
+  background: var(--fg); 
+  color: var(--bg); 
+  border-radius: 24px; 
+  padding: 5vw; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+  gap: 2rem; 
+}
+
+.contact-inner h2 { 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  font-size: clamp(2.5rem, 6vw, 4.5rem); 
+  line-height: 0.95; 
+  letter-spacing: -0.01em; 
+  max-width: 480px; 
+}
+
+.contact-links { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.2rem; 
+}
+
+.contact-link { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.6rem; 
+  font-family: var(--font-body); 
+  font-weight: 700; 
+  font-size: 0.85rem; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  text-decoration: none; 
+  color: rgba(255,255,255,0.6); 
+  border-bottom: 1px solid rgba(255,255,255,0.15); 
+  padding-bottom: 4px; 
+  transition: color 0.2s, border-color 0.2s, gap 0.2s; 
+}
+
 .contact-link:hover { color: #fff; border-color: rgba(255,255,255,0.6); gap: 1rem; }
 
+
 /* ==========================================================================
-   4. ESTILOS DA PÁGINA INTERNA (ds-portobello.html)
+   4. ESTRUTURAS DE PÁGINAS INTERNAS (Projetos / Case Studies)
    ========================================================================== */
+
+   /* --- A. Cabeçalhos e Introduções (Textos e Métricas Iniciais) --- */
 .projeto-header {
   padding: calc(var(--nav-h) + 10vh) 5vw 4rem;
   display: grid;
@@ -321,24 +540,39 @@ footer {
   align-items: end;
   gap: 2rem;
 }
+
 .projeto-header h1 {
-  font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 8vw, 7rem);
-  line-height: 0.9; letter-spacing: -0.01em; text-transform: uppercase;
-  opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.9; 
+  letter-spacing: -0.01em; 
+  text-transform: uppercase;
+  opacity: 0; 
+  animation: fadeUp 0.7s 0.1s forwards;
 }
 
-/* Container principal em Grid */
+.projeto-header-inline { 
+  display: flex;
+  flex-direction: row; 
+  gap: 2rem; 
+  align-items: center; 
+}
+
+.projeto-index { 
+  font-size: clamp(4rem, 10vw, 7rem); 
+}
+
 .intro-full { 
   padding: 0 5vw 5vw 5vw;
   display: grid; 
-  grid-template-columns: 2fr 1fr; /* Divide em 3 partes: 2 para o texto, 1 para os metadados */
-  gap: 4rem; /* Espaço entre a coluna do texto e a coluna dos metadados */
+  grid-template-columns: 2fr 1fr; 
+  gap: 4rem; 
   align-items: start;
 }
 
-/* Coluna da Esquerda */
 .intro-textos {
-  max-width: 780px; /* Mantém o limite de leitura confortável */
+  max-width: 780px; 
 }
 
 .intro-textos .resumo { 
@@ -346,22 +580,21 @@ footer {
   color: var(--fg2); 
   font-weight: 300; 
   line-height: 1.75; 
-  margin-bottom: 2rem; /* Espaço entre o resumo e o texto em itálico */
+  margin-bottom: 2rem; 
 }
 
 .intro-textos .descricao-sub {
   font-style: italic;
-  font-size: 1rem; /* Um pouco menor para dar hierarquia */
+  font-size: 1rem; 
   color: var(--fg2);
   line-height: 1.6;
 }
 
-/* Coluna da Direita (Metadados) */
 .projeto-header-meta { 
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Substitui o margin-top manual fixo */
-  text-align: right; /* Alinhado à esquerda conforme a seta azul */
+  gap: 1.5rem; 
+  text-align: right; 
   opacity: 0; 
   animation: fadeUp 0.7s 0.25s forwards; 
 }
@@ -373,7 +606,7 @@ footer {
 }
 
 .meta-item strong {
-  display: block; /* Faz o texto de baixo quebrar a linha */
+  display: block; 
   margin-bottom: 0.25rem;
   font-family: var(--font-body);
   font-size: 0.72rem;
@@ -382,136 +615,7 @@ footer {
   letter-spacing: 0.1em;
 }
 
-.hero-img-full { display: block; width: 100%; aspect-ratio: 16/9; background: var(--bg); overflow: hidden; padding: 0 0 5vw 0; }
-
-/* ==========================================================================
-   LINHA DO TEMPO (TIMELINE)
-   ========================================================================== */
-
-.timeline-wrap { 
-  padding: 8vh 5vw; 
-}
-
-.timeline { 
-  position: relative; 
-  max-width: 720px; 
-  margin: 0 auto; 
-}
-
-.timeline::before {
-  content: ''; 
-  position: absolute; 
-  left: 6px; 
-  top: 5rem; 
-  bottom: 0;
-  width: 1px; 
-  background: var(--border);
-}
-
-.timeline-title { 
-  font-size: 0.72rem; 
-  letter-spacing: 0.14em; 
-  text-transform: uppercase; 
-  color: var(--fg3); 
-  margin-bottom: 5rem; 
-  padding-left: 0; 
-}
-
-/* Itens da Timeline */
-.timeline-item {
-  position: relative; 
-  padding: 0 0 6rem 3.5rem; 
-  opacity: 0; 
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.timeline-item.in { 
-  opacity: 1; 
-  transform: translateY(0); 
-}
-
-.timeline-item:last-child { 
-  padding-bottom: 0; 
-}
-
-/* Marcador (Bolinha) */
-.timeline-dot {
-  position: absolute; 
-  left: 6px; 
-  top: 0.35rem; 
-  width: 13px; 
-  height: 13px;
-  border-radius: 50%; 
-  background: var(--bg); 
-  border: 1.5px solid var(--fg3);
-  transform: translateX(-50%); 
-  z-index: 2; 
-  transition: border-color 0.3s, background 0.3s;
-}
-
-.timeline-item.in .timeline-dot { 
-  border-color: var(--fg); 
-  background: var(--fg); 
-}
-
-/* Elementos de Texto Internos */
-
-/* CORREÇÃO: Adicionado o seletor pai para vencer a especificidade do .timeline-item p */
-.timeline-item .timeline-item-label { 
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: var(--fg3);
-  text-transform: uppercase;
-  letter-spacing: 0.1em; 
-  margin-bottom: 0.75rem; /* Removido a duplicidade de 0.25rem */
-}
-
-.timeline-item h3 { 
-  font-family: var(--font-display); 
-  font-weight: 700; 
-  font-size: clamp(1.5rem, 3vw, 2.2rem); 
-  margin-bottom: 1rem; 
-  letter-spacing: -0.01em; 
-}
-
-.timeline-item p { 
-  font-size: 1rem; 
-  color: var(--fg2); 
-  font-weight: 300; 
-  line-height: 1.75; 
-  margin-bottom: 1.5rem; 
-}
-
-/* Mídia / Imagens */
-.timeline-img { 
-  width: 100%; 
-  aspect-ratio: 16/9; 
-  border-radius: 12px; 
-  background: var(--card-bg); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  margin: 5vw 0 0;
-  overflow: hidden; 
-}
-
-/* Grid de Métricas */
-.metrics { margin: 3rem 0; }
-.metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.metric { background: var(--card-bg); border-radius: 12px; padding: 2rem; }
-.metric-n { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; display: block; line-height: 1; margin-bottom: 0.4rem; }
-.metric-d { font-size: 0.82rem; color: var(--fg3); line-height: 1.4; }
-
-.project-navigation { display: flex; justify-content: space-between; align-items: center; padding: 4rem 5vw; border-top: 1px solid var(--border); }
-
-
-/* ==========================================================================
-   6. ADICIONAL: SUPORTE AO LAYOUT EDITORIAL (projeto-v1-editorial.html)
-   ========================================================================== */
-
-/* Cria a diagramação de duas colunas laterais do layout editorial */
+   /* --- B. Layouts de Conteúdo Editorial e Seções Alternadas --- */
 .content-section {
   padding: 6vh 5vw;
 }
@@ -523,7 +627,6 @@ footer {
   align-items: start;
 }
 
-/* Deixa o número/etapa (ex: 01 — Problema) fixo ao scrollar a tela */
 .content-label {
   font-family: var(--font-body);
   font-size: 0.72rem;
@@ -553,78 +656,358 @@ footer {
   margin-bottom: 1.2rem;
 }
 
+/* Blocos Alternados (Texto / Imagem) */
+.alternado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 60vh;
+  border-top: 1px solid var(--border);
+}
+
+.alternado.invertido {
+  direction: rtl;
+}
+
+.alternado.invertido > * {
+  direction: ltr;
+}
+
+.alternado-texto {
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--border);
+}
+
+.alternado.invertido .alternado-texto {
+  border-left: none;
+  border-right: 1px solid var(--border);
+}
+
+.alternado-texto .content-label {
+  position: static;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.alternado-texto h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.alternado-texto p {
+  font-size: 1rem;
+  color: var(--fg2);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+   /* --- C. Cronograma / Linha do Tempo (Timeline) --- */
+.timeline-wrap { 
+  padding: 8vh 5vw; 
+}
+
+.timeline { 
+  position: relative; 
+  max-width: 720px; 
+  margin: 0 auto; 
+}
+
+.timeline::before {
+  content: ''; 
+  position: absolute; 
+  left: 6px; 
+  top: 5rem; 
+  bottom: 0;
+  width: 1px; 
+  background: var(--border);
+}
+
+.timeline-title { 
+  font-size: 0.72rem; 
+  letter-spacing: 0.14em; 
+  text-transform: uppercase; 
+  color: var(--fg3); 
+  margin-bottom: 5rem; 
+  padding-left: 0; 
+}
+
+.timeline-item {
+  position: relative; 
+  padding: 0 0 6rem 3.5rem; 
+  opacity: 0; 
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.in { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+.timeline-item:last-child { 
+  padding-bottom: 0; 
+}
+
+.timeline-dot {
+  position: absolute; 
+  left: 6px; 
+  top: 0.35rem; 
+  width: 13px; 
+  height: 13px;
+  border-radius: 50%; 
+  background: var(--bg); 
+  border: 1.5px solid var(--fg3);
+  transform: translateX(-50%); 
+  z-index: 2; 
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.timeline-item.in .timeline-dot { 
+  border-color: var(--fg); 
+  background: var(--fg); 
+}
+
+.timeline-item .timeline-item-label { 
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--fg3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em; 
+  margin-bottom: 0.75rem; 
+}
+
+.timeline-item h3 { 
+  font-family: var(--font-display); 
+  font-weight: 700; 
+  font-size: clamp(1.5rem, 3vw, 2.2rem); 
+  margin-bottom: 1rem; 
+  letter-spacing: -0.01em; 
+}
+
+.timeline-item p { 
+  font-size: 1rem; 
+  color: var(--fg2); 
+  font-weight: 300; 
+  line-height: 1.75; 
+  margin-bottom: 1.5rem; 
+}
+
+   /* --- D. Galeria de Imagens, Mosaicos e Elementos Visuais --- */
+.hero-img-full { 
+  display: block; 
+  width: 100%; 
+  aspect-ratio: 16/9; 
+  background: var(--bg); 
+  overflow: hidden; 
+  padding: 0 0 5vw 0; 
+}
+
 .img-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin: 5vw 0;
 }
 
-@media (max-width: 768px) {
-  .content-cols {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .img-grid-2 {
-    grid-template-columns: 1fr;
-  }
+.img-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.timeline-img { 
+  width: 100%; 
+  aspect-ratio: 16/9; 
+  border-radius: 12px; 
+  background: var(--card-bg); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin: 5vw 0 0;
+  overflow: hidden; 
+}
+
+/* Estrutura de Mosaicos Assimétricos */
+.mosaico {
+  display: grid;
+  gap: 1.5rem;
+  padding: 4vw 5vw;
+}
+
+.mosaico-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.mosaico-row-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.mosaico-row-3.invertido {
+  grid-template-columns: 1fr 2fr;
+}
+
+.mosaico-img {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.mosaico-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.mosaico-img:hover img { transform: scale(1.03); }
+
+.mosaico-placeholder {
+  width: 100%;
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  color: rgba(0,0,0,0.07);
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 5rem);
+}
+
+.mosaico-img-tall { aspect-ratio: 3/4; }
+.mosaico-img-wide { aspect-ratio: 16/9; }
+.mosaico-img-sq { aspect-ratio: 1/1; }
+.mosaico-img-short { aspect-ratio: 4/3; }
+
+.alternado-img {
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.alternado-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.alternado-img:hover img { transform: scale(1.03); }
+
+.alternado-img-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  color: rgba(0,0,0,0.07);
+  font-weight: 700;
+}
+
+   /* --- E. Blocos de Métricas (Dados e Números) --- */
+.metrics { 
+  margin: 3rem 0; 
+}
+
+.metrics-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px; 
+}
+
+.metric { 
+  background: var(--card-bg); 
+  border-radius: 12px; 
+  padding: 2rem; 
+}
+
+.metric-n { 
+  font-family: var(--font-display); 
+  font-size: clamp(2.5rem, 5vw, 4rem); 
+  font-weight: 700; 
+  display: block; 
+  line-height: 1; 
+  margin-bottom: 0.4rem; 
+}
+
+.metric-d { 
+  font-size: 0.82rem; 
+  color: var(--fg3); 
+  line-height: 1.4; 
+}
+
+/* Faixa Escura de Métricas */
+.metrics-dark {
+  background: var(--fg);
+  padding: 6vh 5vw;
+}
+
+.metrics-dark .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 0;
+}
+
+.metrics-dark .metric {
+  background: var(--fg);
+  border-radius: 0;
+  padding: 3rem 2rem;
+}
+
+.metrics-dark .metric-n {
+  color: #fff;
+}
+
+.metrics-dark .metric-d {
+  color: rgba(255,255,255,0.4);
+}
+
+/* Navegação entre Projetos */
+.project-navigation { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 4rem 5vw; 
+  border-top: 1px solid var(--border); 
 }
 
 
 /* ==========================================================================
-   5. ANIMAÇÕES E RESPONSIVIDADE (Media Queries)
+   5. ANIMAÇÕES (Keyframes Globais)
    ========================================================================== */
 @keyframes fadeUp { 
   from { opacity: 0; transform: translateY(24px); } 
   to { opacity: 1; transform: translateY(0); } 
 }
 
-.mobile-only { display: none; }
 
+/* ==========================================================================
+   6. RESPONSIVIDADE (Media Queries unificadas para 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
+  /* Globais e Componentes */
   .mobile-only { display: block; }
-  .hero-title { font-size: clamp(3.5rem, 18vw, 6rem); line-height: 0.9; }
   .hamburger { display: block; }
   .nav-links { display: none; }
   .section-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .project-card.large { grid-column: span 1; }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-image { position: static; }
-  .about-image img { max-height: 60vh; }
-  .skills-grid { gap: 2rem 1.5rem; }
   
-  /* --- CORREÇÃO DO INTRO-FULL E ESPAÇAMENTOS MOBILE --- */
-  .intro-full {
-    grid-template-columns: 1fr;   
-    gap: 2.5rem;                  
-    padding: 0 5vw 3.5rem 5vw;     
-  }
-
-  .intro-textos .resumo {
-    font-size: 1.15rem;           
-    margin-bottom: 1rem;          
-  }
-
-  .projeto-header-meta {
-    text-align: left;            
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 1.5rem 1rem;           
-  }
-
-  /* --- REMOVE O STICKY DO CONTENT-LABEL NO MOBILE --- */
-  .content-label {
-    position: static;   /* Remove o comportamento de fixar ao scrollar */
-    padding-top: 0;     /* Remove o ajuste de espaçamento que era usado no desktop */
-    margin-bottom: 0.5rem; /* Adiciona um pequeno respiro entre o número/etapa e o título abaixo */
-  }
-  
-  .content-cols {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;        /* Ajusta o espaçamento geral do bloco para não ficar muito distante */
-  }
-
   nav.open .nav-links {
     display: flex;
     flex-direction: column;
@@ -637,12 +1020,65 @@ footer {
     padding-top: var(--nav-h);
   }
   .nav-links a { font-size: 1.5rem; }
-
-  /* ----------------------------------------------------- */
-  
-  /* Interna */
-  .projeto-header { grid-template-columns: 1fr; }
-  .metrics-grid { grid-template-columns: 1fr; }
-  .project-navigation { flex-direction: row; justify-content: space-between; align-items: center; gap: 1rem; }
   .nav-btn { font-size: 0.75rem; }
+
+  /* Home Elements */
+  .hero-title { font-size: clamp(3.5rem, 18vw, 6rem); line-height: 0.9; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.large { grid-column: span 1; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image { position: static; }
+  .about-image img { max-height: 60vh; }
+  .skills-grid { gap: 2rem 1.5rem; }
+  
+  /* Estrutura Interna & Textos */
+  .intro-full {
+    grid-template-columns: 1fr;   
+    gap: 2.5rem;                  
+    padding: 0 5vw 3.5rem 5vw;     
+  }
+
+  .intro-textos .resumo {
+    font-size: 1.15rem;           
+    margin-bottom: 1rem;          
+  }
+
+  .projeto-header { grid-template-columns: 1fr; }
+  .projeto-header-inline { flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .projeto-index { font-size: clamp(4rem, 20vw, 7rem); }
+  
+  .projeto-header-meta {
+    text-align: left;            
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem 1rem;           
+  }
+
+  .content-cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;        
+  }
+
+  .content-label {
+    position: static;   
+    padding-top: 0;     
+    margin-bottom: 0.5rem; 
+  }
+
+  /* Seções Alternadas */
+  .alternado, .alternado.invertido { grid-template-columns: 1fr; direction: ltr; }
+  .alternado-texto { border-left: none; border-top: 1px solid var(--border); }
+  .alternado.invertido .alternado-texto { border-right: none; border-top: 1px solid var(--border); }
+
+  /* Imagens, Galeria e Mosaico */
+  .img-grid-2 { grid-template-columns: 1fr; }
+  .img-grid-3 { grid-template-columns: 1fr; }
+  .mosaico-row-2, .mosaico-row-3, .mosaico-row-3.invertido { grid-template-columns: 1fr; }
+  .alternado-img { min-height: 50vw; }
+  .alternado-img-placeholder { min-height: 50vw; }
+
+  /* Métricas e Rodapé Interno */
+  .metrics-grid { grid-template-columns: 1fr; }
+  .metrics-dark .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .project-navigation { flex-direction: row; justify-content: space-between; align-items: center; gap: 1rem; }
 }
