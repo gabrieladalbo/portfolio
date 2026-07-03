@@ -608,12 +608,12 @@ footer span {
   gap: 1.5rem; 
   text-align: right; 
   opacity: 0; 
-  animation: fadeUp 0.7s 0.25s forwards; 
+  animation: fadeUp 0.7s 0.25s forwards;
 }
 
 .meta-item {
   font-size: 0.85rem; 
-  color: var(--fg); 
+  color: var(--fg3); 
   line-height: 1.4; 
 }
 
@@ -774,8 +774,7 @@ footer span {
 
 .timeline-img { 
   width: 100%; 
-  aspect-ratio: 16/9; 
-  border-radius: 12px; 
+  aspect-ratio: 16/9;  
   background: var(--card-bg); 
   display: flex; 
   align-items: center; 
