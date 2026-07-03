@@ -202,6 +202,20 @@
   document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
   });
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.content-section, .hero-img-full, .timeline-img, .img-grid-2, .img-grid-3').forEach(el => {
+    el.classList.add('reveal');
+    revealObs.observe(el);
+  });
 </script>
 </body>
 </html>
