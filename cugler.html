@@ -11,7 +11,7 @@
   
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="no-select">
+<body>
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">GABIDALBÓ</a>
@@ -156,6 +156,12 @@
       nav.classList.remove('open');
       document.body.style.overflow = '';
     });
+  });
+
+  document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'u')) e.preventDefault();
   });
 </script>
 </body>
