@@ -12,12 +12,14 @@
   --fg: #111;
   --fg2: #555;
   --fg3: #707070;
+  --fg4: #dad3c8;
   --accent: #111;
   --card-bg: #EDEAE3;
   --border: rgba(0,0,0,0.08);
   --nav-h: 64px;
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Source Sans 3', sans-serif;
+  
 }
 
 html { 
@@ -31,6 +33,12 @@ body {
   font-size: 16px;
   line-height: 1.61;
   overflow-x: hidden;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--fg4);
 }
 
 section {
@@ -666,6 +674,28 @@ footer span {
   font-weight: 300;
   line-height: 1.8;
   margin-bottom: 1.2rem;
+}
+
+/* Variante centralizada para a seção de abertura (contexto) */
+.content-section.centered {
+  padding: 14vh 5vw;
+}
+
+.content-section.centered .content-cols {
+  display: block;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.content-section.centered .content-label {
+  position: static;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.content-section.centered .content-body p {
+  margin: 0 auto;
 }
 
 /* Blocos Alternados (Texto / Imagem) */
